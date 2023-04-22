@@ -1,4 +1,4 @@
-﻿
+﻿using Game.Cameras;
 using UnityEngine;
 using UnityEngine.Events;
 namespace Game.Managers
@@ -20,8 +20,12 @@ namespace Game.Managers
 		}
 		public IcreaseHealthEvent playerHealthIncreased = new IcreaseHealthEvent();
 		public TakeDamageEvent playerDamaged = new TakeDamageEvent();
+
+		public CameraChangeEvent cameraChangeEvent = new CameraChangeEvent();
 	}
 
-	public class IcreaseHealthEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc)
-	public class TakeDamageEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc)
+	public class IcreaseHealthEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado a la curacion
+	public class TakeDamageEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado al daño
+
+	public class CameraChangeEvent : UnityEvent <TypesOfCamera>{} //primer TypesOfCamera: tipo de camara deseado
 }
