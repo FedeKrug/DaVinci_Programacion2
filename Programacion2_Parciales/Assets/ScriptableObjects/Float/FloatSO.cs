@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName ="New Float", menuName ="ScriptableObject/Float")]
-public class FloatSO : ScriptableObject
+namespace Game.SO
 {
-    public float value;
+	[CreateAssetMenu(fileName = "New Float", menuName = "ScriptableObject/Float")]
+	public class FloatSO : ScriptableObject
+	{
+		public float value;
+	}
+
 }

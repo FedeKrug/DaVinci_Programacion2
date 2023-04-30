@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using Game.SO;
 using UnityEngine;
 
 namespace Game.Managers
