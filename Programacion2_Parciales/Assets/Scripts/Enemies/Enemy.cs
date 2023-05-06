@@ -5,18 +5,14 @@ using UnityEngine;
 using Game.Interfaces;
 namespace Game.Enemies
 {
-	public abstract class Enemy : MonoBehaviour, Damagable
+	public abstract class Enemy : MonoBehaviour
 	{
 		[SerializeField] protected float health;
 		[SerializeField] protected Animator anim;
 		[SerializeField] protected float damage;
 
 
-		public virtual void TakeDamage()
-		{
-			health -= 2; //TODO: Add a variable to takeDamage
-			CheckDeath();
-		}
+		
 
 		protected abstract void CheckDeath();
 
@@ -32,7 +28,7 @@ namespace Game.Enemies
 		{
 			if (other.CompareTag("Plyer"))
 			{
-				TakeDamage();
+				
 			}
 		}
 		
