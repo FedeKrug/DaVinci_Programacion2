@@ -22,7 +22,12 @@ public class ExplosiveBullet : Damagable
 
 		if (Physics.Raycast(_explosionRay, out _hit, _explosiveRange, _explosiveLayer))
 		{
-			_hit.collider.GetComponent<PlayerMovement>()?
+			var explodedObject = _hit.collider;
+			if (explodedObject.CompareTag("Player"))
+			{
+				PlayerManager.instance.TakeDamage(damage);
+			}
+
 		}
 
 	}
