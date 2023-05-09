@@ -2,57 +2,28 @@ using Game.Managers;
 
 using System.Collections;
 using System.Collections.Generic;
-
+using Game.Enemies;
 using UnityEngine;
 
 public class ExplosiveBullet : Damagable
 {
-	protected override void UseBehaviour()
+	[SerializeField] private float _explosiveRange;
+	[SerializeField] private LayerMask _explosiveLayer;
+	private Ray _explosionRay;
+	private RaycastHit _hit;
+	public override void UseBehaviour()
 	{
-		//Explosion
+		Explode();
 		MakeDamage();
 	}
-}
-public class NormalBullet : Damagable
-{
-	protected override void UseBehaviour()
+	private void Explode()
 	{
-		MakeDamage();
-	}
-}
-public class MeleeAttack : Damagable
-{
-	protected override void UseBehaviour()
-	{
-		MakeDamage();
-	}
-}
+		_explosionRay = new Ray(transform.position, transform.forward);
 
-public abstract class Damagable : MonoBehaviour
-{
-	[SerializeField] protected float damage;
-	protected bool playerDamaged, enemyDamaged;
-	protected abstract void UseBehaviour();
-	protected void MakeDamage()
-	{
-		if (playerDamaged)
+		if (Physics.Raycast(_explosionRay, out _hit, _explosiveRange, _explosiveLayer))
 		{
-			EventManager.instance.playerDamaged.Invoke(damage);
+			_hit.collider.GetComponent<PlayerMovement>()?
 		}
-		else if (enemyDamaged)
-		{
-
-		}
-	}
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("Player")) playerDamaged = true;
-		if (other.CompareTag("Enemy")) enemyDamaged = true;
-	}
-	private void OnTriggerExit(Collider other)
-	{
-		if (other.CompareTag("Player")) playerDamaged = false;
-		if (other.CompareTag("Enemy")) enemyDamaged = false;
 
 	}
 }
