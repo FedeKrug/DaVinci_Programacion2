@@ -9,7 +9,7 @@ namespace Game.Enemies
 		{
 			if (health <= 0)
 			{
-				canMove = false;
+				//canMove = false;
 				anim.Play(_deathAnimation);
 			}
 		}
