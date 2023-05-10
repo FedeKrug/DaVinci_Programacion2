@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823e13583f0ad2d438eed6e5d023d777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 759388671}
   _playerHealth: {fileID: 11400000, guid: a30bab4c7a3732a4a83745dde53811d0, type: 2}
 --- !u!1 &310129738
 GameObject:
@@ -347,11 +348,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e6daff6394a6934990361845a54c8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 0.52
   damage: 0
-  anim: {fileID: 0}
+  anim: {fileID: 1523301055}
   _agent: {fileID: 401239167}
-  _target: {fileID: 759388671}
+  _deathAnimation: Death
 --- !u!1 &402462927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,6 +1386,31 @@ MonoBehaviour:
   _playerInteractor: {fileID: 1732112024}
   _actualCamera: 2
   _cameraControll: {fileID: 963194229}
+--- !u!1 &1523301054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: df14119487a12ae499e59134bf888d5e, type: 3}
+  m_PrefabInstance: {fileID: 958470144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1523301055
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523301054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7954ba7f6e17da4dae7419236a6753a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1651156439
 GameObject:
   m_ObjectHideFlags: 0
