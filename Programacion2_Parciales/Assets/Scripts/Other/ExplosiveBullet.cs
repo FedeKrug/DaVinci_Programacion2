@@ -1,5 +1,5 @@
 using Game.Managers;
-
+using Game.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Enemies;
@@ -20,15 +20,23 @@ public class ExplosiveBullet : Damagable
 	{
 		_explosionRay = new Ray(transform.position, transform.forward);
 
-		if (Physics.Raycast(_explosionRay, out _hit, _explosiveRange, _explosiveLayer))
+		if (Physics.SphereCast(_explosionRay, _explosiveRange, out _hit, _explosiveRange))
 		{
-			var explodedObject = _hit.collider;
-			if (explodedObject.CompareTag("Player"))
+			var explodedObject = _hit.collider.GetComponent<Explotable>();
+			if (explodedObject != null)
 			{
-				PlayerManager.instance.TakeDamage(damage);
+				explodedObject.Explode();
 			}
+
 
 		}
 
+	}
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Floor"))
+		{
+			UseBehaviour();
+		}
 	}
 }

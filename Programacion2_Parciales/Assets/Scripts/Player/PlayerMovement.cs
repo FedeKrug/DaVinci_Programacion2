@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Cameras;
+using Game.Interfaces;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, Explotable
 {
     [Header("Values")]
     [SerializeField] float _movementSpeed = 5f;
@@ -47,4 +48,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 dir = (transform.right * xAxis + transform.forward * zAxis).normalized;
         _rb.MovePosition(transform.position += dir * _movementSpeed * Time.fixedDeltaTime);
     }
+
+	public void Explode()
+	{
+        Debug.Log($"Player has to explode, not being damaged in this method. ");
+	}
 }
