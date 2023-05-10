@@ -1,36 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using Game.Managers;
 using UnityEngine;
 using Game.Interfaces;
 using UnityEngine.AI;
 namespace Game.Enemies
 {
-    [RequireComponent(typeof(NavMeshAgent))]
-    public abstract class Enemy : MonoBehaviour
+	[RequireComponent(typeof(NavMeshAgent))]
+	public abstract class Enemy : MonoBehaviour
 	{
-        [Header("Stats")]
+		[Header("Stats")]
 		[SerializeField] protected float health;
 		[SerializeField] protected float damage;
 
-        [Header("Animator")]
-        [SerializeField] protected Animator anim;
+		[Header("Animator")]
+		[SerializeField] protected Animator anim;
 
-        [Header("NavMesh")]
-        [SerializeField] protected NavMeshAgent _agent;
-        [SerializeField] protected Transform _target;
-         
-        protected abstract void CheckDeath();
+		[Header("NavMesh")]
+		[SerializeField] protected NavMeshAgent _agent;
+		protected Transform target;
+		protected bool canMove;
 
-        protected void Start()
-        {
-            _agent = GetComponent<NavMeshAgent>();
-        }
+		protected abstract void CheckDeath();
 
-        protected void Update()
-        {
-            _agent.SetDestination(_target.position);
-        }
+		protected void Start()
+		{
+			_agent = GetComponent<NavMeshAgent>();
+			target = PlayerManager.instance.playerTransform; //una referencia desde el playerManager para que incluso los prefabs sepan donde esta el player.
+			canMove = true; //una confirmacion para el movimiento del enemy. TODO: cuando sea false, setear la velocidad de navmesh a 0, y cuando es true, a su velocidad normal.
+		}
 
-    }
+		protected void Update()
+		{
+			if (canMove)
+			{
+				_agent.SetDestination(target.position);
+
+			}
+			CheckDeath(); //TODO: Llamar a esta funcion solo cuando el enemigo recibe daño.
+		}
+
+	}
 }

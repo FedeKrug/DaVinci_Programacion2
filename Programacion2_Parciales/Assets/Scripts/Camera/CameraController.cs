@@ -63,6 +63,11 @@ namespace Game.Cameras
 					break;
 			}
 		}
+		public void FocusOnEntity()
+		{
+			var actualCamera = cameraType;
+			
+		}
 	}
 
 
