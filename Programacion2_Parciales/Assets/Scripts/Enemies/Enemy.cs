@@ -3,50 +3,34 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using Game.Interfaces;
+using UnityEngine.AI;
 namespace Game.Enemies
 {
-	public abstract class Enemy : MonoBehaviour
+    [RequireComponent(typeof(NavMeshAgent))]
+    public abstract class Enemy : MonoBehaviour
 	{
+        [Header("Stats")]
 		[SerializeField] protected float health;
-		[SerializeField] protected Animator anim;
 		[SerializeField] protected float damage;
 
+        [Header("Animator")]
+        [SerializeField] protected Animator anim;
 
-		
+        [Header("NavMesh")]
+        [SerializeField] protected NavMeshAgent _agent;
+        [SerializeField] protected Transform _target;
+         
+        protected abstract void CheckDeath();
 
-		protected abstract void CheckDeath();
+        protected void Start()
+        {
+            _agent = GetComponent<NavMeshAgent>();
+        }
 
-	}
-	public class Kamikaze: Enemy
-	{
-		protected override void CheckDeath()
-		{
-			
-		}
+        protected void Update()
+        {
+            _agent.SetDestination(_target.position);
+        }
 
-		private void OnTriggerEnter(Collider other)
-		{
-			if (other.CompareTag("Plyer"))
-			{
-				
-			}
-		}
-		
-	}
-	public class MeleeCombatient : Enemy
-	{
-		protected override void CheckDeath()
-		{
-
-		}
-
-	}
-	public class DistantWarrior : Enemy
-	{
-		protected override void CheckDeath()
-		{
-
-		}
-
-	}
+    }
 }
