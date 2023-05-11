@@ -355,10 +355,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0.52
   damage: 0
-  anim: {fileID: 1523301055}
+  _anim: {fileID: 1523301055}
   _agent: {fileID: 401239167}
   _speed: 5
-  _range: 10
+  _rangeToChase: 5
+  _rangeToAttack: 2
   _deathAnimation: Death
 --- !u!1 &402462927
 GameObject:

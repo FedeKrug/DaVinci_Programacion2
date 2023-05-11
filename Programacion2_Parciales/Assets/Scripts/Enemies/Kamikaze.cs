@@ -9,7 +9,12 @@ namespace Game.Enemies
 			
 		}
 
-		private void OnTriggerEnter(Collider other)
+        protected override void onAttackrange()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void OnTriggerEnter(Collider other)
 		{
 			if (other.CompareTag("Plyer"))
 			{
