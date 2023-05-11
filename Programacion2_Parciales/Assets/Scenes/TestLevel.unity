@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157168083}
   - component: {fileID: 157168084}
+  - component: {fileID: 157168085}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -169,6 +170,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 759388671}
   _playerHealth: {fileID: 11400000, guid: a30bab4c7a3732a4a83745dde53811d0, type: 2}
+--- !u!114 &157168085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157168082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daae5bd85925142428750f2cbbf2fc26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackButton: 32
+  canReceiveInput: 1
+  inputReceived: 0
 --- !u!4 &277588033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 6c18c006c0a8aa24b85d09bb8843c3a0, type: 3}
@@ -627,7 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a6b47c3d66b0ae4bb234dd69cb49164, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a6b47c3d66b0ae4bb234dd69cb49164, type: 3}
