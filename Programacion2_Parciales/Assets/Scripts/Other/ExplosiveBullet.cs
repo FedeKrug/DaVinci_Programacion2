@@ -5,16 +5,26 @@ using System.Collections.Generic;
 using Game.Enemies;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class ExplosiveBullet : Damagable
 {
+
 	[SerializeField] private float _explosiveRange;
 	[SerializeField] private LayerMask _explosiveLayer;
-	private Ray _explosionRay;
-	private RaycastHit _hit;
+	[SerializeField] private float _explosionForce;
+
+	//private Ray _explosionRay;
+	//private RaycastHit _hit;
+	private Rigidbody _rb;
+
+	private void Awake()
+	{
+		_rb = GetComponent<Rigidbody>();
+	}
 	public override void UseBehaviour()
 	{
 		Explode();
-		MakeDamage();
+		
 	}
 	private void Explode()
 	{
@@ -23,19 +33,22 @@ public class ExplosiveBullet : Damagable
 
 		foreach (Collider expObject in explotables)
 		{
-			expObject.GetComponent<Explotable>()?.Explode();
+			if (expObject.GetComponent<Explotable>() != null)
+			{
+				expObject.GetComponent<Explotable>().Explode();
+				if (expObject.CompareTag("Player"))
+				{
+					MakeDamage();
+				}
+
+			}
 		}
-		//if (Physics.SphereCast(_explosionRay, _explosiveRange, out _hit, _explosiveRange))
-		//{
-		//	var explodedObject = _hit.collider.GetComponent<Explotable>();
-		//	if (explodedObject != null)
-		//	{
-		//		explodedObject.Explode();
-		//	}
 
 
-		//}
-
+	}
+	protected override void MakeDamage()
+	{
+		EventManager.instance.playerDamaged.Invoke(damage);
 	}
 	private void OnTriggerEnter(Collider other)
 	{

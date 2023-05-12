@@ -11,7 +11,10 @@ namespace Game.Managers
 	{
 		public static PlayerManager instance;
 
+		public FloatSO playerHealth;
 		public Transform playerTransform;
+		[SerializeField] private float _maxPlayerHealth;
+		#region Singleton
 		private void Awake()
 		{
 			if (instance == null)
@@ -23,8 +26,7 @@ namespace Game.Managers
 				Destroy(gameObject);
 			}
 		}
-		public FloatSO _playerHealth;
-
+		#endregion
 
 		private void OnEnable()
 		{
@@ -37,15 +39,25 @@ namespace Game.Managers
 			EventManager.instance.playerHealthIncreased.RemoveListener(IncreaseHealthHandler);
 			EventManager.instance.playerDamaged.RemoveListener(TakeDamageHandler);
 		}
+		private void Start()
+		{
+			playerHealth.value = _maxPlayerHealth;
+		}
+		//private void Update()
+		//{
+		//	EventManager.instance.updateHealthUIEvent.Invoke(_maxPlayerHealth, playerHealth.value);
 
+		//}
 		public void IncreaseHealthHandler(float healthBoost)
 		{
-			_playerHealth.value += healthBoost;
+			playerHealth.value += healthBoost;
+			EventManager.instance.updateHealthUIEvent.Invoke(_maxPlayerHealth, playerHealth.value);
 			Debug.Log("Player increased health");
 		}
 		public void TakeDamageHandler(float damage)
 		{
-			_playerHealth.value -= damage;
+			playerHealth.value -= damage;
+			EventManager.instance.updateHealthUIEvent.Invoke(_maxPlayerHealth, playerHealth.value);
 			Debug.Log("Player damaged");
 
 		}

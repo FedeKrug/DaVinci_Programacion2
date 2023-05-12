@@ -784,8 +784,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Texto PlaceHolder de c\xF3mo jugar\n__________________________________________________________________________________________________________________________________________________________________________________________________________________________________\n\nCreditos:\n\n-
-    Ignacio Fried\n- Federico Krug"
+  m_text: "C\xF3mo jugar:\n\n- Moverse con las flechas o wasd.\n- Ataque con el click
+    del mouse.\n\n\n\nCreditos:\n\n- Ignacio Fried\n- Federico Krug"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc28ecc8b619988439ae0e599446e767, type: 2}
   m_sharedMaterial: {fileID: -2281786638079516723, guid: cc28ecc8b619988439ae0e599446e767, type: 2}

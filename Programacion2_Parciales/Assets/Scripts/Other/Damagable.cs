@@ -7,7 +7,7 @@ public abstract class Damagable : MonoBehaviour
 	[SerializeField] protected float damage;
 	protected bool playerDamaged, enemyDamaged;
 	public abstract void UseBehaviour();
-	protected void MakeDamage()
+	protected virtual void MakeDamage()
 	{
 		if (playerDamaged)
 		{
