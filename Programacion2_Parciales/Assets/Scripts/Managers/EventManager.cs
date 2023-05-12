@@ -18,13 +18,13 @@ namespace Game.Managers
 				Destroy(gameObject);
 			}
 		}
-		public IcreaseHealthEvent playerHealthIncreased = new IcreaseHealthEvent();
+		public IncreaseHealthEvent playerHealthIncreased = new IncreaseHealthEvent();
 		public TakeDamageEvent playerDamaged = new TakeDamageEvent();
 
 		public CameraChangeEvent cameraChangeEvent = new CameraChangeEvent();
 	}
 
-	public class IcreaseHealthEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado a la curacion
+	public class IncreaseHealthEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado a la curacion
 	public class TakeDamageEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado al daño
 
 	public class CameraChangeEvent : UnityEvent <TypesOfCamera>{} //primer TypesOfCamera: tipo de camara deseado

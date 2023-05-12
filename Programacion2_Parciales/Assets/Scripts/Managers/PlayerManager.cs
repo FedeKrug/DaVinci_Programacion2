@@ -28,22 +28,22 @@ namespace Game.Managers
 
 		private void OnEnable()
 		{
-			EventManager.instance.playerHealthIncreased.AddListener(IncreaseHealth);
-			EventManager.instance.playerDamaged.AddListener(TakeDamage);
+			EventManager.instance.playerHealthIncreased.AddListener(IncreaseHealthHandler);
+			EventManager.instance.playerDamaged.AddListener(TakeDamageHandler);
 		}
 
 		private void OnDisable()
 		{
-			EventManager.instance.playerHealthIncreased.RemoveListener(IncreaseHealth);
-			EventManager.instance.playerDamaged.RemoveListener(TakeDamage);
+			EventManager.instance.playerHealthIncreased.RemoveListener(IncreaseHealthHandler);
+			EventManager.instance.playerDamaged.RemoveListener(TakeDamageHandler);
 		}
 
-		public void IncreaseHealth(float healthBoost)
+		public void IncreaseHealthHandler(float healthBoost)
 		{
 			_playerHealth.value += healthBoost;
 			Debug.Log("Player increased health");
 		}
-		public void TakeDamage(float damage)
+		public void TakeDamageHandler(float damage)
 		{
 			_playerHealth.value -= damage;
 			Debug.Log("Player damaged");

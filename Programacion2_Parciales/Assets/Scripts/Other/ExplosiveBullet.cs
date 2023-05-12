@@ -18,18 +18,23 @@ public class ExplosiveBullet : Damagable
 	}
 	private void Explode()
 	{
-		_explosionRay = new Ray(transform.position, transform.forward);
+		//_explosionRay = new Ray(transform.position, transform.forward);
+		Collider[] explotables = Physics.OverlapSphere(transform.position, _explosiveRange);
 
-		if (Physics.SphereCast(_explosionRay, _explosiveRange, out _hit, _explosiveRange))
+		foreach (Collider expObject in explotables)
 		{
-			var explodedObject = _hit.collider.GetComponent<Explotable>();
-			if (explodedObject != null)
-			{
-				explodedObject.Explode();
-			}
-
-
+			expObject.GetComponent<Explotable>()?.Explode();
 		}
+		//if (Physics.SphereCast(_explosionRay, _explosiveRange, out _hit, _explosiveRange))
+		//{
+		//	var explodedObject = _hit.collider.GetComponent<Explotable>();
+		//	if (explodedObject != null)
+		//	{
+		//		explodedObject.Explode();
+		//	}
+
+
+		//}
 
 	}
 	private void OnTriggerEnter(Collider other)
