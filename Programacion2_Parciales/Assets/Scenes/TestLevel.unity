@@ -171,7 +171,7 @@ MonoBehaviour:
   _myCam: {fileID: 963194227}
   _camDistance: 6
   _hitOffset: 0.2
-  _minClamp: -150
+  _minClamp: -600
   _maxClamp: 150
   _mouseSensitivity: 500
   _camViewLayer:

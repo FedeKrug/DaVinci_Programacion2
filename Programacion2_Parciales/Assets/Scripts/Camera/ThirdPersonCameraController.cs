@@ -25,6 +25,6 @@ public class ThirdPersonCameraController : MonoBehaviour
 	}
     private void Rotate(Vector3 dir)
 	{
-        transform.forward = dir;
+        _playerRef.transform.forward = dir;
 	}
 }
