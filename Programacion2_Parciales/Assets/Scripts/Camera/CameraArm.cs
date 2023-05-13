@@ -5,7 +5,7 @@ public class CameraArm : MonoBehaviour
 {
     [Header("Camera")]
     [SerializeField] private Camera _myCam;
-
+    [SerializeField, Range(-1,1)] private int _cameraOrientation;
 
     [Header("Values")]
     [SerializeField] private float _camDistance = 6f;
@@ -50,7 +50,7 @@ public class CameraArm : MonoBehaviour
 
         _mouseY = Mathf.Clamp(_mouseY, _minClamp, _maxClamp);
 
-        transform.rotation = Quaternion.Euler(-_mouseY, _mouseX, 0f);
+        transform.rotation = Quaternion.Euler(_cameraOrientation* _mouseY, _mouseX, 0f);
 
         _dir = -transform.forward;
 

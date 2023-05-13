@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -169,10 +169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myCam: {fileID: 963194227}
+  _cameraOrientation: 1
   _camDistance: 6
   _hitOffset: 0.2
   _minClamp: -600
-  _maxClamp: 150
+  _maxClamp: 600
   _mouseSensitivity: 500
   _camViewLayer:
     serializedVersion: 2
@@ -1042,7 +1043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.032479167, y: 0.9082963}
   m_AnchorMax: {x: 0.29352084, y: 0.92788917}
-  m_AnchoredPosition: {x: -40.528, y: 14.835}
+  m_AnchoredPosition: {x: -40.528076, y: 14.834961}
   m_SizeDelta: {x: -1, y: -5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &784618216
