@@ -6,10 +6,5 @@
 		{
 
 		}
-
-        protected override void onAttackrange()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

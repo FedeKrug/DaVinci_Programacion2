@@ -10,9 +10,5 @@ namespace Game.Enemies
         {
 
         }
-
-        protected override void onAttackrange()
-        {
-        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyConcrete : EnemyAgent
-{
+{/*
     GameManager GC;
     Characterswap CharSwap;
     [Range(2, 50)] public float minDistanceToFollow;
@@ -93,6 +93,6 @@ public class EnemyConcrete : EnemyAgent
 
 
 
-    #endregion
+    #endregion */
 
 }

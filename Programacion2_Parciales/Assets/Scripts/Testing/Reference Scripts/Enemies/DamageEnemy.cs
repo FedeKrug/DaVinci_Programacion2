@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DamageEnemy : MonoBehaviour
 {
-    [SerializeField] int damage = 10;
+  /*  [SerializeField] int damage = 10;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +14,7 @@ public class DamageEnemy : MonoBehaviour
         {
             playerlife.Hit(damage);
         }
-    }
+    }*/
 
 }
 

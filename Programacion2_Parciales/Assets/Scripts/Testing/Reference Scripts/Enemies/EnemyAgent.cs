@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class EnemyAgent : EnemyBase
-{
+{/*
     [SerializeField] NavMeshAgent nav;
     [SerializeField] [Range(1, 10)] public float mySpeed = 5f;
 
@@ -40,5 +40,5 @@ public abstract class EnemyAgent : EnemyBase
     protected override void OnRefresh(float val) { }
     protected override void OnTakeDamage() { }
 
-    protected override void OnKnock() { }
+    protected override void OnKnock() { }*/
 }

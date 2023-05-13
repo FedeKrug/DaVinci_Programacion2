@@ -14,10 +14,5 @@ namespace Game.Enemies
 				//TODO: Animation of death
 			}
 		}
-
-        protected override void onAttackrange()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

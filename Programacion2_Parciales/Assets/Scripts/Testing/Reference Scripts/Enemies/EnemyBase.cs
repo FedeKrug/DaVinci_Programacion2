@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class EnemyBase : MonoBehaviour
-{
+{/*
     [SerializeField] int lifemax;
     LifeComponent lifecomponent;
     [SerializeField] Image lifefillui;
@@ -50,6 +50,6 @@ public abstract class EnemyBase : MonoBehaviour
 
     protected abstract void OnRefresh(float val);
 
-    protected abstract void OnTakeDamage();
+    protected abstract void OnTakeDamage();*/
 
 }

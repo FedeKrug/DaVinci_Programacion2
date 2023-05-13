@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
-{
+{/*
     public AnimEventsManager events;
     public MeleeSensor mysensormelee;
 
@@ -35,6 +35,7 @@ public class EnemyCombat : MonoBehaviour
 
   
     #endregion
+    */
 
 
  

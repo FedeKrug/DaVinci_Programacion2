@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 public class LifeComponentCharacter
-{
+{/*
     int life = 0;
     int life_max = 0;
     Action callback_death;
@@ -74,6 +74,6 @@ public class LifeComponentCharacter
         callback_refresh.Invoke(amount);
 
 
-    }
+    }*/
 
 }

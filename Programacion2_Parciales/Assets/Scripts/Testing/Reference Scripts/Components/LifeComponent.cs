@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 public class LifeComponent
-{
+{ /*
     GameManager GC;
     public int life = 0;
     int life_max = 0;
@@ -83,6 +83,6 @@ public class LifeComponent
         callback_refresh.Invoke(amount);
 
 
-    }
+    }*/
 
 }
