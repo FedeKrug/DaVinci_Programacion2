@@ -14,6 +14,11 @@ namespace Game.Enemies
 
         private void onAttackEnd()
         {
+            _enemy.startMovement();
+        }
+
+        private void onAttackBegin()
+        {
             _enemy.stopMovement();
         }
     }

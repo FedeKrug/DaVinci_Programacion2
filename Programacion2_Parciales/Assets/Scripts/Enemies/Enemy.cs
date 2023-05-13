@@ -25,8 +25,8 @@ namespace Game.Enemies
 
 
 		protected Transform _target;
-		protected bool canMove;
 		protected float _distance;
+		protected bool canMove = true;
 
 
 		protected void Start()
@@ -40,27 +40,40 @@ namespace Game.Enemies
 		{
 			_distance = (transform.position - _target.position).sqrMagnitude;
 
-			if (_distance <= Mathf.Pow(_rangeToChase, 2))
+			if (canMove)
 			{
-				_anim.SetBool("InChaseRange", true);
-				_agent.SetDestination(_target.position);
-
-				if (_distance <= Mathf.Pow(_rangeToAttack, 2))
+				if (_distance <= Mathf.Pow(_rangeToChase, 2))
 				{
-					_anim.SetTrigger("InAttackRange");
-				}
+					_anim.SetBool("InChaseRange", true);
+					goToTarget();
 
+					if (_distance <= Mathf.Pow(_rangeToAttack, 2))
+					{
+						_anim.SetTrigger("InAttackRange");
+					}
+
+				}
 			}
 			else
 			{
-				_anim.Play("Idle");
+				_anim.SetBool("InChaseRange", false);
 			}
 		}
 		public abstract void CheckDeath(float health);
 		public void stopMovement()
         {
-
+			_agent.isStopped = true;
+			canMove = false;
         }
+
+		public void startMovement()
+        {
+			_agent.isStopped = false;
+			canMove = true;
+		}
+
+		public abstract void goToTarget();
+
 		
 	}
 }
