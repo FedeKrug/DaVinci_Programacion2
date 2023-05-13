@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Ranged : MonoBehaviour
+namespace Game.Enemies
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Enemy_Ranged : Enemy
     {
-        
-    }
+        public override void CheckDeath(float health)
+        {
+            throw new System.NotImplementedException();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void goToTarget()
+        {
+            _agent.SetDestination(transform.position + ((transform.position - _target.position)).normalized);
+        }
     }
 }
