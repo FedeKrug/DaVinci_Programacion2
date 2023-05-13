@@ -20,7 +20,6 @@ public class ThirdPersonCameraController : MonoBehaviour
 
         Vector3 dir = (_camFixedRight * xAxis + _camFixedForward * zAxis).normalized;
 
-        _playerRef.Movement(_playerRef.xAxis, _playerRef.zAxis);
 
 	}
     private void Rotate(Vector3 dir)

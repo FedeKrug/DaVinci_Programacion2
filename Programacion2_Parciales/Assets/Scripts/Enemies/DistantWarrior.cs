@@ -2,7 +2,7 @@
 {
     public class DistantWarrior : Enemy
 	{
-		protected override void CheckDeath()
+		public override void CheckDeath(float health)
 		{
 
 		}

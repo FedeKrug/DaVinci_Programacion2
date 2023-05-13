@@ -11,12 +11,12 @@ public class HealthSystemTesting : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.B))
 		{
 			//PlayerManager.instance.IncreaseHealth(_healthBoost);
-			EventManager.instance.playerHealthIncreased.Invoke(_healthBoost);
+			//EventManager.instance.playerHealthIncreased.Invoke(_healthBoost);
 		}
 		if (Input.GetKeyDown(KeyCode.C))
 		{
 			//PlayerManager.instance.TakeDamage(_damage);
-			EventManager.instance.playerDamaged.Invoke(_damage);
+			//EventManager.instance.playerDamaged.Invoke(_damage);
 		}
 	}
 }

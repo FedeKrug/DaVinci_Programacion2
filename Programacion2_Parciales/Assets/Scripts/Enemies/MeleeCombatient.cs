@@ -5,13 +5,14 @@ namespace Game.Enemies
 	public class MeleeCombatient : Enemy
 	{
 		[SerializeField] private string _deathAnimation;
-		protected override void CheckDeath()
+
+		public override void CheckDeath(float health)
 		{
-		//	if (health <= 0)
-		//	{
-		//		//canMove = false;
-		//		anim.Play(_deathAnimation);
-		//	}
+			if (health <= 0)
+			{
+				Debug.Log("Melee Combatant is dead");
+				//TODO: Animation of death
+			}
 		}
 
         protected override void onAttackrange()

@@ -6,8 +6,9 @@ namespace Game.Enemies
 {
     public class Enemy_CloseQuarters : Enemy
     {
-        protected override void CheckDeath()
+        public override void CheckDeath(float health)
         {
+
         }
 
         protected override void onAttackrange()

@@ -45,8 +45,8 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	{
 		if (xAxis != 0 || zAxis != 0)
 		{
-			//Movement(xAxis, zAxis);
 			_cameraRef.CameraMovement(xAxis,zAxis,_rb);
+			Movement(xAxis, zAxis);
 		}
 	}
 

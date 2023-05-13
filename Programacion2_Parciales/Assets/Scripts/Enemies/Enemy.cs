@@ -10,8 +10,9 @@ namespace Game.Enemies
 	public abstract class Enemy : MonoBehaviour
 	{
 		[Header("Stats")]
-		[SerializeField] protected float health;
+		[SerializeField] public float health;
 		[SerializeField] protected float damage;
+
 
 		[Header("Animator")]
 		[SerializeField] protected Animator _anim;
@@ -27,7 +28,6 @@ namespace Game.Enemies
 		protected bool canMove;
 		protected float _distance;
 
-		protected abstract void CheckDeath();
 
 		protected void Start()
 		{
@@ -40,23 +40,25 @@ namespace Game.Enemies
 		{
 			_distance = (transform.position - _target.position).sqrMagnitude;
 
-			if (_distance <= Mathf.Pow(_rangeToChase,2))
+			if (_distance <= Mathf.Pow(_rangeToChase, 2))
 			{
 				_anim.SetBool("InChaseRange", true);
 				_agent.SetDestination(_target.position);
 
-				if(_distance <= Mathf.Pow(_rangeToAttack, 2))
-                {
+				if (_distance <= Mathf.Pow(_rangeToAttack, 2))
+				{
 					_anim.SetTrigger("InAttackRange");
-                }
+				}
 
-			} else
-            {
+			}
+			else
+			{
 				_anim.Play("Idle");
-            }
+			}
 		}
-
+		public abstract void CheckDeath(float health);
 		protected abstract void onAttackrange();
+		
 	}
 }
 

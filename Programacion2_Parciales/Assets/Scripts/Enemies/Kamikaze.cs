@@ -4,7 +4,7 @@ namespace Game.Enemies
 {
     public class Kamikaze: Enemy
 	{
-		protected override void CheckDeath()
+		public override void CheckDeath(float health)
 		{
 			
 		}

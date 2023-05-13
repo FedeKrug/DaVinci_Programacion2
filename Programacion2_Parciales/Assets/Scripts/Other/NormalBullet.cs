@@ -2,6 +2,6 @@
 {
 	public override void UseBehaviour()
 	{
-		MakeDamage();
+		MakeDamageToPlayer();
 	}
 }

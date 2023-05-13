@@ -1,4 +1,6 @@
 ﻿using Game.Cameras;
+using Game.Enemies;
+
 using UnityEngine;
 using UnityEngine.Events;
 namespace Game.Managers
@@ -24,6 +26,8 @@ namespace Game.Managers
 		public CameraChangeEvent cameraChangeEvent = new CameraChangeEvent();
 
 		public UpdateHealthUIEvent updateHealthUIEvent = new UpdateHealthUIEvent();
+
+		public MakeDamageToEnemyEvent makeDamageToEnemyEvent = new MakeDamageToEnemyEvent();
 	}
 
 	public class IncreaseHealthEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado a la curacion
@@ -32,5 +36,7 @@ namespace Game.Managers
 	public class CameraChangeEvent : UnityEvent <TypesOfCamera>{} //primer TypesOfCamera: tipo de camara deseado
 
 	public class UpdateHealthUIEvent : UnityEvent<float, float> { } //vida max -> vida actual
+
+	public class MakeDamageToEnemyEvent : UnityEvent<float, float, Enemy> { } //damage made to enemy and enemyHealth amount
 
 }
