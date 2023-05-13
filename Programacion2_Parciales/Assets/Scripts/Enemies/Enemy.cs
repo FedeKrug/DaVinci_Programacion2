@@ -57,7 +57,10 @@ namespace Game.Enemies
 			}
 		}
 		public abstract void CheckDeath(float health);
-		protected abstract void onAttackrange();
+		public void stopMovement()
+        {
+
+        }
 		
 	}
 }
