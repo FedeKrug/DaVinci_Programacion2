@@ -45,7 +45,7 @@ namespace Game.Enemies
 				if (_distance <= Mathf.Pow(_rangeToChase, 2))
 				{
 					_anim.SetBool("InChaseRange", true);
-					goToTarget();
+					GoToTarget();
 
 					if (_distance <= Mathf.Pow(_rangeToAttack, 2))
 					{
@@ -72,7 +72,7 @@ namespace Game.Enemies
 			canMove = true;
 		}
 
-		public abstract void goToTarget();
+		public abstract void GoToTarget();
 
 		
 	}

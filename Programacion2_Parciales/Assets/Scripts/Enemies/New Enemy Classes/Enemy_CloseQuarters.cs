@@ -8,10 +8,10 @@ namespace Game.Enemies
     {
         public override void CheckDeath(float health)
         {
-            throw new System.NotImplementedException();
+           
         }
 
-        public override void goToTarget()
+        public override void GoToTarget()
         {
             _agent.SetDestination(_target.position);
         }

@@ -11,7 +11,7 @@ namespace Game.Enemies
             throw new System.NotImplementedException();
         }
 
-        public override void goToTarget()
+        public override void GoToTarget()
         {
             _agent.SetDestination(transform.position + ((transform.position - _target.position)).normalized);
         }
