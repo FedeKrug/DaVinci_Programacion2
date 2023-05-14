@@ -18,6 +18,7 @@ namespace Game.Enemies
             } else
             {
                 _anim.SetBool("InChaseRange", false);
+                _agent.velocity = Vector3.zero;
             }
         }
         protected override bool attackCondition()
@@ -33,7 +34,7 @@ namespace Game.Enemies
         }
         protected override void Attack()
         {
-            _anim.SetTrigger("InAttackRange");
+            _anim.SetBool("InAttackRange", true);
         }
         public override void CheckDeath(float health)
         {
@@ -45,6 +46,11 @@ namespace Game.Enemies
             Vector3 lookPos = _target.position - transform.position;
             lookPos.y = 0;
             transform.forward = lookPos;
+        }
+
+        public void spawnProjectile()
+        {
+
         }
     }
 }

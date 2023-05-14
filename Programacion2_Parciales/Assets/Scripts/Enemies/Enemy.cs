@@ -58,7 +58,6 @@ namespace Game.Enemies
 			_agent.isStopped = true;
 			_agent.speed = 0;
 			_agent.velocity = Vector3.zero;
-			_agent.enabled = false;
 			canMove = false;
 		}
 
@@ -66,7 +65,7 @@ namespace Game.Enemies
 		{
 			_agent.isStopped = false;
 			_agent.speed = _speed;
-			_agent.enabled = true;
+			_anim.SetBool("InAttackRange", false);
 			canMove = true;
 		}
 	}

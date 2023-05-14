@@ -15,6 +15,7 @@ namespace Game.Enemies
             } else
             {
                 _anim.SetBool("InChaseRange", false);
+                _agent.velocity = Vector3.zero;
             }
         }
         protected override bool attackCondition()
@@ -29,7 +30,7 @@ namespace Game.Enemies
         }
         protected override void Attack()
         {
-            _anim.SetTrigger("InAttackRange");
+            _anim.SetBool("InAttackRange", true);
         }
 
         public override void CheckDeath(float health)
