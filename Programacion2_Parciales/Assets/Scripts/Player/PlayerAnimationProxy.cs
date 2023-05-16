@@ -5,15 +5,20 @@ using UnityEngine;
 
 public class PlayerAnimationProxy : MonoBehaviour
 {
-	[SerializeField] private PlayerAttack _playerRef;
+	[SerializeField] private PlayerAttack _playerAttackRef;
+	[SerializeField] private PlayerJump _playerJumpRef;
 
-	public void OnEndAnimation()
+	public void OnEndAnimationAttack()
 	{
-		_playerRef.OnEndAttack();
+		_playerAttackRef.OnEndAttack();
 	}
 	public void OnAnttack()
 	{
-		_playerRef.OnAttack();
+		_playerAttackRef.OnAttack();
 
+	}
+	public void OnEndJump()
+	{
+		_playerJumpRef.LandOnFloor();
 	}
 }
