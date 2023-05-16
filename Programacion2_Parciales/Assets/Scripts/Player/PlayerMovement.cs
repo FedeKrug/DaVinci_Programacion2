@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour, Explotable
 {
 	[Header("Values")]
 	[SerializeField] float _movementSpeed = 5f;
+	public bool canMove;
 
 	[Header("Inputs")]
 	[SerializeField] int _atkButttonindex = 0;
@@ -43,7 +44,7 @@ public class PlayerMovement : MonoBehaviour, Explotable
 
 	private void FixedUpdate()
 	{
-		if (xAxis != 0 || zAxis != 0)
+		if ((xAxis != 0 || zAxis != 0)&& canMove)
 		{
 			_cameraRef.CameraMovement(xAxis,zAxis,_rb);
 			Movement(xAxis, zAxis);
@@ -61,3 +62,4 @@ public class PlayerMovement : MonoBehaviour, Explotable
 		Debug.Log($"Player has to explode, not being damaged in this method. ");
 	}
 }
+

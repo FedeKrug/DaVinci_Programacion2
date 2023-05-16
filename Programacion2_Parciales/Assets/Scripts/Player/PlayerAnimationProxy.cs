@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerAnimationProxy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] private PlayerAttack _playerRef;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public void OnEndAnimation()
+	{
+		_playerRef.OnEndAttack();
+	}
+	public void OnAnttack()
+	{
+		_playerRef.OnAttack();
+
+	}
 }
