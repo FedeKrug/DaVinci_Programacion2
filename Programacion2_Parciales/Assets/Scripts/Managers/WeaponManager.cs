@@ -18,8 +18,24 @@ namespace Game.Managers
 			}
 		}
 		#endregion
-		[SerializeField] private ChangeWeapon _actualWeapon; 
+		[SerializeField] private ChangeWeapon _actualWeapon;
 
+
+		private void OnEnable()
+		{
+			EventManager.instance.changeWeaponEvent.AddListener(ChangeWeaponHandler);
+		}
+
+		private void OnDisable()
+		{
+			EventManager.instance.changeWeaponEvent.RemoveListener(ChangeWeaponHandler);
+			
+		}
+
+		public void ChangeWeaponHandler(Weapons newWeapon)
+		{
+			_actualWeapon.weaponType = newWeapon;
+		}
 		//En este script se hace el evento del cambio de armas
 
 	}

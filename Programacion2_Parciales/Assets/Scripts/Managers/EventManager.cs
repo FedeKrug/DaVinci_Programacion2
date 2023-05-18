@@ -28,15 +28,20 @@ namespace Game.Managers
 		public UpdateHealthUIEvent updateHealthUIEvent = new UpdateHealthUIEvent();
 
 		public MakeDamageToEnemyEvent makeDamageToEnemyEvent = new MakeDamageToEnemyEvent();
+
+		public ChangeWeaponEvent changeWeaponEvent = new ChangeWeaponEvent();
+
 	}
 
-	public class IncreaseHealthEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado a la curacion
-	public class TakeDamageEvent : UnityEvent<float>{} //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado al daño
+	public class IncreaseHealthEvent : UnityEvent<float> { } //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado a la curacion
+	public class TakeDamageEvent : UnityEvent<float> { } //primer float: vida actual, segundo float: modificador de vida (damage, boost, etc) -> aplicado al daño
 
-	public class CameraChangeEvent : UnityEvent <TypesOfCamera>{} //primer TypesOfCamera: tipo de camara deseado
+	public class CameraChangeEvent : UnityEvent<TypesOfCamera> { } //primer TypesOfCamera: tipo de camara deseado
 
 	public class UpdateHealthUIEvent : UnityEvent<float, float> { } //vida max -> vida actual
 
 	public class MakeDamageToEnemyEvent : UnityEvent<float, float, Enemy> { } //damage made to enemy and enemyHealth amount
+
+	public class ChangeWeaponEvent : UnityEvent<Weapons> { } //new weapon
 
 }
