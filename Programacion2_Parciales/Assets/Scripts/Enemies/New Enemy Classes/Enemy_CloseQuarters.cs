@@ -8,22 +8,17 @@ namespace Game.Enemies
     {
         protected override void Move()
         {
-            if (_distance <= Mathf.Pow(_rangeToChase, 2))
-            {
-                _anim.SetBool("InChaseRange", true);
-                _agent.SetDestination(_target.position);
-            } else
-            {
-                _anim.SetBool("InChaseRange", false);
-                _agent.velocity = Vector3.zero;
-            }
+            _anim.SetBool("InChaseRange", true);
+            _agent.SetDestination(_target.position);
         }
+
         protected override bool attackCondition()
         {
             if (_distance <= Mathf.Pow(_rangeToAttack, 2))
             {
                 return true;
-            } else
+            }
+            else
             {
                 return false;
             }
@@ -32,10 +27,36 @@ namespace Game.Enemies
         {
             _anim.SetBool("InAttackRange", true);
         }
-
         public override void CheckDeath(float health)
         {
             throw new System.NotImplementedException();
         }
     }
 }
+
+
+
+/* protected override void Move()
+ {
+     _anim.SetBool("InChaseRange", true);
+     _agent.SetDestination(_target.position);
+ }
+ protected override bool attackCondition()
+ {
+     if (_distance <= Mathf.Pow(_rangeToAttack, 2))
+     {
+         return true;
+     } else
+     {
+         return false;
+     }
+ }
+ protected override void Attack()
+ {
+     _anim.SetBool("InAttackRange", true);
+ }
+
+ public override void CheckDeath(float health)
+ {
+     throw new System.NotImplementedException();
+ }*/

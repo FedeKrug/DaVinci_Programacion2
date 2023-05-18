@@ -39,28 +39,51 @@ namespace Game.Enemies
         {
 			_distance = (transform.position - _target.position).sqrMagnitude;
 
-			if(canMove)
-            {
-				Move();
-				if(attackCondition())
-                {
-					Attack();
-                }
+			if (canMove)
+			{
+				if (moveCondition())
+				{
+					Move();
+					if (attackCondition())
+					{
+						Attack();
+					}
+				}
+				else
+				{
+					_anim.SetBool("InChaseRange", false);
+					_agent.velocity = Vector3.zero;
+				}
 			}
 		}
 
+
+		#region Functions()
+		
+		protected virtual bool moveCondition()
+        {
+			if(_distance <= Mathf.Pow(_rangeToChase, 2))
+            {
+				return true;
+            } else
+            {
+				return false;
+            }
+        }
 		protected abstract void Move();
 		protected abstract bool attackCondition();
 		protected abstract void Attack();
 		public abstract void CheckDeath(float health);
-		public void stopMovement()
+        #endregion
+
+        #region Animationevents
+        public void stopMovement()
 		{
 			_agent.isStopped = true;
 			_agent.speed = 0;
 			_agent.velocity = Vector3.zero;
 			canMove = false;
 		}
-
 		public void startMovement()
 		{
 			_agent.isStopped = false;
@@ -68,7 +91,9 @@ namespace Game.Enemies
 			_anim.SetBool("InAttackRange", false);
 			canMove = true;
 		}
-	}
+
+        #endregion
+    }
 
 }
 

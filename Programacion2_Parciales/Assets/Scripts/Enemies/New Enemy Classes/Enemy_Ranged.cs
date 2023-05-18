@@ -10,16 +10,10 @@ namespace Game.Enemies
         protected override void Move()
         {
             LookAtPlayer();
-            if (_distance <= Mathf.Pow(_rangeToChase, 2))
-            {
-                _anim.SetBool("InChaseRange", true);
-                _agent.SetDestination(transform.position + ((transform.position - _target.position).normalized) * _agent.speed);
-                _timer -= Time.deltaTime;
-            } else
-            {
-                _anim.SetBool("InChaseRange", false);
-                _agent.velocity = Vector3.zero;
-            }
+            _anim.SetBool("InChaseRange", true);
+            _agent.SetDestination(transform.position + ((transform.position - _target.position).normalized) * _agent.speed);
+            _timer -= Time.deltaTime;
+        
         }
         protected override bool attackCondition()
         {
