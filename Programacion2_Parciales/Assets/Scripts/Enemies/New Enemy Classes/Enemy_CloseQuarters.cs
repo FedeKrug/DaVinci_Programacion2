@@ -31,6 +31,11 @@ namespace Game.Enemies
         {
             throw new System.NotImplementedException();
         }
+
+        public override void animationAttack()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
 

@@ -92,8 +92,10 @@ namespace Game.Enemies
 			canMove = true;
 		}
 
-        #endregion
-    }
+		public abstract void animationAttack();
+
+		#endregion
+	}
 
 }
 
