@@ -1,3 +1,4 @@
+
 using Game.Managers;
 using Game.Interfaces;
 using System.Collections;
@@ -14,11 +15,11 @@ public class ExplosiveBullet : Explosive
 	{
 		_rb = GetComponent<Rigidbody>();
 	}
-	public override void UseBehaviour()
-	{
-		Explode();
-	}
-	
+	//public override void UseBehaviour()
+	//{
+	//	Explode();
+	//}
+
 	protected override void MakeDamageToPlayer()
 	{
 		EventManager.instance.playerDamaged.Invoke(damage);

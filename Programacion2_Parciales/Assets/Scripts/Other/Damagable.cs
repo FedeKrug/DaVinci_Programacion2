@@ -11,22 +11,4 @@ public abstract class Damagable : MonoBehaviour
 	{
 		EventManager.instance.playerDamaged.Invoke(damage);
 	}
-	protected virtual void MakeDamageToEnemy()
-	{
-		if (enemyDamaged)
-		{
-
-		}
-	}
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("Player")) playerDamaged = true;
-		if (other.GetComponent<Enemy>()) enemyDamaged = true;
-	}
-	private void OnTriggerExit(Collider other)
-	{
-		if (other.CompareTag("Player")) playerDamaged = false;
-		if (other.GetComponent<Enemy>()) enemyDamaged = false;
-
-	}
 }

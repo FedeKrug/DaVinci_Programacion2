@@ -46,5 +46,10 @@ namespace Game.Enemies
         {
 
         }
-    }
+
+		public override void Death()
+		{
+            Debug.Log($"EnemyRanged is dead");
+		}
+	}
 }

@@ -10,7 +10,6 @@ namespace Game.Enemies
 	public abstract class Enemy : MonoBehaviour
 	{
 		[Header("Stats")]
-		[SerializeField] public float health;
 		[SerializeField] protected float damage;
 
 
@@ -73,7 +72,14 @@ namespace Game.Enemies
 		protected abstract void Move();
 		protected abstract bool attackCondition();
 		protected abstract void Attack();
-		public abstract void CheckDeath(float health);
+		public virtual void CheckDeath(float health)
+		{
+			if (health<=0)
+			{
+				Death();
+			}
+		}
+		public abstract void Death();
         #endregion
 
         #region Animationevents
@@ -96,49 +102,3 @@ namespace Game.Enemies
     }
 
 }
-
-		/*protected void Update()
-		{
-			_distance = (transform.position - _target.position).sqrMagnitude;
-
-			if (canMove)
-			{
-				if (_distance <= Mathf.Pow(_rangeToChase, 2))
-				{
-					_anim.SetBool("InChaseRange", true);
-					goToTarget();
-
-					if (_distance <= Mathf.Pow(_rangeToAttack, 2))
-					{
-						_anim.SetTrigger("InAttackRange");
-					}
-
-				}
-			}
-			else
-			{
-				_anim.SetBool("InChaseRange", false);
-			}
-		}
-		public abstract void CheckDeath(float health);
-		public void stopMovement()
-        {
-			_agent.isStopped = true;
-			canMove = false;
-        }
-
-		public void startMovement()
-        {
-			_agent.isStopped = false;
-			canMove = true;
-		}
-
-		public abstract void goToTarget();
-		
-	}
-}
-
-*/
-
-//CheckDeath(); //TODO: Llamar a esta funcion solo cuando el enemigo recibe daño. >>> Iria al final del update
-//canMove = true; //una confirmacion para el movimiento del enemy. TODO: cuando sea false, setear la velocidad de navmesh a 0, y cuando es true, a su velocidad normal. >>> Iria al final del Start

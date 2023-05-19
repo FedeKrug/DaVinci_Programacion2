@@ -27,11 +27,17 @@ namespace Game.Enemies
         {
             _anim.SetBool("InAttackRange", true);
         }
-        public override void CheckDeath(float health)
-        {
-            throw new System.NotImplementedException();
-        }
-    }
+        //public override void CheckDeath(float health)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
+
+		public override void Death()
+		{
+            Debug.Log($"Enemy Close Quarters is dead");
+            gameObject.SetActive(false);
+		}
+	}
 }
 
 
