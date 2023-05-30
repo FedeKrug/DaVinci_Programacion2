@@ -11,7 +11,7 @@ namespace Game.Enemies
 	{
 		[Header("Stats")]
 		[SerializeField] public float health;
-		[SerializeField] protected float damage;
+		[SerializeField] protected float damage = 100f;
 
 
 		[Header("Animator")]
@@ -92,10 +92,18 @@ namespace Game.Enemies
 			canMove = true;
 		}
 
-		public abstract void animationAttack();
+		public virtual void animationAttack()
+        {
+			Collider[] player = Physics.OverlapSphere(transform.position, 5f);
+			foreach (Collider contact in player)
+			{
+				if (contact.CompareTag("Player"))
+					EventManager.instance.playerDamaged.Invoke(damage);
+			}
+		}
 
-		#endregion
-	}
+			#endregion
+		}
 
 }
 

@@ -7,7 +7,7 @@ public class Enemy_Projectile : MonoBehaviour
 {
     Transform _target;
     Rigidbody _rb;
-    float _speed = 1f;
+    [SerializeField]float _speed = 10f;
     Vector3 dir;
     float timer = 1f;
     void Start()

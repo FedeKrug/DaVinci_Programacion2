@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Managers;
 
 namespace Game.Enemies
 {
@@ -25,14 +26,9 @@ namespace Game.Enemies
         }
         protected override void Attack()
         {
-            _anim.SetBool("InAttackRange", true);
+                _anim.SetBool("InAttackRange", true);
         }
         public override void CheckDeath(float health)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void animationAttack()
         {
             throw new System.NotImplementedException();
         }
