@@ -4,8 +4,7 @@ public class PlayerAttack : MonoBehaviour
 {
 	private Ray _attackRay;
 	private RaycastHit _hit;
-	[SerializeField] private float _attackRange;
-	[SerializeField] private float _attackDamage;
+	[SerializeField] private float _attackRange = 3;
 	[SerializeField] private Transform _attackPosition;
 
 	[SerializeField] private PlayerMovement _playerMovement;
