@@ -9,6 +9,7 @@ public class Explosive : Damagable
 	[SerializeField] protected float _explosiveRange;
 	[SerializeField] protected LayerMask _explosiveLayer;
 	[SerializeField] protected float _explosionForce;
+	[SerializeField] protected float _upForce;
 	public override void UseBehaviour()
 	{
 		Explode();
@@ -19,19 +20,23 @@ public class Explosive : Damagable
 
 		foreach (Collider expObject in explotables)
 		{
-			if (expObject.GetComponent<Explotable>() != null)
+			Rigidbody rb = expObject.GetComponent<Rigidbody>();
+			if (rb !=null && rb != this.GetComponent<Rigidbody>())
 			{
-				expObject.GetComponent<Explotable>().Explode();
-				if (expObject.CompareTag("Player"))
+				rb.AddExplosionForce(_explosionForce, transform.position, _explosiveRange,_upForce);
+				if (expObject.GetComponent<Explotable>() != null)
 				{
-					MakeDamageToPlayer();
+					expObject.GetComponent<Explotable>().Explode();
+					if (expObject.CompareTag("Player"))
+					{
+						MakeDamageToPlayer();
+					}
 				}
-			}
-			else if (expObject.GetComponent<Enemy>() != null)
-			{
-				var enemyHealth = expObject.GetComponent<Enemy>().health;
-				var enemyCatched = expObject.GetComponent<Enemy>();
-				EventManager.instance.makeDamageToEnemyEvent.Invoke(damage, enemyHealth,enemyCatched);
+				if (expObject.GetComponent<EnemyHealth>() != null)
+				{
+					expObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+
+				}
 			}
 		}
 	}

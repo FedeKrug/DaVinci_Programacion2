@@ -10,7 +10,6 @@ namespace Game.Enemies
 	public abstract class Enemy : MonoBehaviour
 	{
 		[Header("Stats")]
-		[SerializeField] public float health;
 		[SerializeField] protected float damage;
 
 
@@ -35,50 +34,71 @@ namespace Game.Enemies
 			_target = PlayerManager.instance.playerTransform; //una referencia desde el playerManager para que incluso los prefabs sepan donde esta el player.
 			_agent.speed = _speed;
 		}
-
-		protected void Update()
-		{
+        private void Update()
+        {
 			_distance = (transform.position - _target.position).sqrMagnitude;
 
 			if (canMove)
 			{
-				if (_distance <= Mathf.Pow(_rangeToChase, 2))
+				if (moveCondition())
 				{
-					_anim.SetBool("InChaseRange", true);
-					GoToTarget();
-
-					if (_distance <= Mathf.Pow(_rangeToAttack, 2))
+					Move();
+					if (attackCondition())
 					{
-						_anim.SetTrigger("InAttackRange");
+						Attack();
 					}
-
+				}
+				else
+				{
+					_anim.SetBool("InChaseRange", false);
+					_agent.velocity = Vector3.zero;
 				}
 			}
-			else
+		}
+
+
+		#region Functions()
+		
+		protected virtual bool moveCondition()
+        {
+			if(_distance <= Mathf.Pow(_rangeToChase, 2))
+            {
+				return true;
+            } else
+            {
+				return false;
+            }
+        }
+		protected abstract void Move();
+		protected abstract bool attackCondition();
+		protected abstract void Attack();
+		public virtual void CheckDeath(float health)
+		{
+			if (health<=0)
 			{
-				_anim.SetBool("InChaseRange", false);
+				Death();
 			}
 		}
-		public abstract void CheckDeath(float health);
-		public void stopMovement()
-        {
-			_agent.isStopped = true;
-			canMove = false;
-        }
+		public abstract void Death();
+        #endregion
 
+        #region Animationevents
+        public void stopMovement()
+		{
+			_agent.isStopped = true;
+			_agent.speed = 0;
+			_agent.velocity = Vector3.zero;
+			canMove = false;
+		}
 		public void startMovement()
-        {
+		{
 			_agent.isStopped = false;
+			_agent.speed = _speed;
+			_anim.SetBool("InAttackRange", false);
 			canMove = true;
 		}
 
-		public abstract void GoToTarget();
+        #endregion
+    }
 
-		
-	}
 }
-
-
-
-//CheckDeath(); //TODO: Llamar a esta funcion solo cuando el enemigo recibe daño. >>> Iria al final del update
-//canMove = true; //una confirmacion para el movimiento del enemy. TODO: cuando sea false, setear la velocidad de navmesh a 0, y cuando es true, a su velocidad normal. >>> Iria al final del Start

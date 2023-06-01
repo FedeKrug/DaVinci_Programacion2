@@ -9,9 +9,6 @@ namespace Game.Managers
 	{
 		public static EnemyManager instance;
 
-
-
-
 		#region Singleton 
 		private void Awake()
 		{
@@ -28,21 +25,21 @@ namespace Game.Managers
 
 		private void OnEnable()
 		{
-			EventManager.instance.makeDamageToEnemyEvent.AddListener(TakeDamageHandler);
+			//EventManager.instance.makeDamageToEnemyEvent.AddListener(TakeDamageHandler);
 		}
 
 
 		private void OnDisable()
 		{
-			EventManager.instance.makeDamageToEnemyEvent.RemoveListener(TakeDamageHandler);
+			//EventManager.instance.makeDamageToEnemyEvent.RemoveListener(TakeDamageHandler);
 
 		}
-		private void TakeDamageHandler(float damage, float healthAmount, Enemy enemy)
-		{
-			healthAmount -= damage;
-			Debug.Log($"Enemy health is {healthAmount}, and he recieved {damage} points of damage. .");
-			enemy.CheckDeath(healthAmount);
-		}
+		//private void TakeDamageHandler(float damage, float healthAmount, Enemy enemy)
+		//{
+		//	healthAmount -= damage;
+		//	Debug.Log($"Enemy health is {healthAmount}, and he recieved {damage} points of damage. .");
+		//	enemy.CheckDeath(healthAmount);
+		//}
 
 	}
 }
