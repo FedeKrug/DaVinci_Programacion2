@@ -38,21 +38,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelAmount: 6.5
-    - _Metalic: 0.885
+    - _FresnelAmount: 10
+    - _Metalic: 1
     - _NormalStrengh1: 5
     - _NormalStrengh2: 3
-    - _Power: 3.9
+    - _Power: 3.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.005
+    - _Smoothness: 0.035
     m_Colors:
     - _FresnelColor: {r: 22.627417, g: 8.529706, b: 0, a: 0.64705884}
-    - _LavaColor: {r: 30.744818, g: 2.4719453, b: 0.7724829, a: 0.572549}
-    - _LavaScale1: {r: 2, g: 2, b: 0, a: 0}
-    - _LavaScale2: {r: 2, g: 2, b: 0, a: 0}
-    - _LavaSpeed1: {r: 0.3, g: 0.1, b: 0, a: 0}
-    - _LavaSpeed2: {r: -0.15, g: -0.1, b: 0, a: 0}
+    - _LavaColor: {r: 21.099447, g: 1.6308752, b: 0.5096485, a: 0.28235295}
+    - _LavaScale1: {r: 2.5, g: 1.6, b: 0, a: 0}
+    - _LavaScale2: {r: 1.8, g: 1.5, b: 0, a: 0}
+    - _LavaSpeed1: {r: 0.15, g: 0.1, b: 0, a: 0}
+    - _LavaSpeed2: {r: -0.2, g: -0.15, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &534619782755613257
 MonoBehaviour:
