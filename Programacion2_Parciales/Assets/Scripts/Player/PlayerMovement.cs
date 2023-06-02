@@ -8,23 +8,28 @@ using Game.Interfaces;
 public class PlayerMovement : MonoBehaviour, Explotable
 {
 	[Header("Values")]
-	[SerializeField] float _movementSpeed = 5f;
+	[SerializeField] private float _movementSpeed = 5f;
 	public bool canMove;
 
 	[Header("Inputs")]
-	[SerializeField] int _atkButttonindex = 0;
+	[SerializeField] private int _atkButttonindex = 0;
 
 	[Header("Animator")]
 	Animator _animator;
-	[SerializeField] string _xAxisName = "xAxis";
-	[SerializeField] string _zAxisName = "zAxis";
+	[SerializeField] private string _xAxisName = "xAxis";
+	[SerializeField] private string _zAxisName = "zAxis";
 
 	[Header("Camera")]
 	[SerializeField] private ThirdPersonCameraController _cameraRef;
 
-	Rigidbody _rb;
+	private Rigidbody _rb;
 	public float xAxis { get; private set; }
 	public float zAxis { get; private set; }
+	public float MovementSpeed 
+	{ 
+		get => _movementSpeed; 
+		set => _movementSpeed = value; 
+	}
 
 	private void Start()
 	{
