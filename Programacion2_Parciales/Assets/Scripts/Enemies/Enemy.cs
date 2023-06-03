@@ -73,11 +73,16 @@ namespace Game.Enemies
 		protected abstract void Move();
 		protected abstract bool attackCondition();
 		protected abstract void Attack();
-		public abstract void CheckDeath(float health);
-        #endregion
+		//public abstract void CheckDeath(float health);
 
-        #region Animationevents
-        public void stopMovement()
+		public virtual void Death()
+		{
+			Debug.Log($"The enemy {gameObject.name} is dead");
+		}
+		#endregion
+
+		#region Animationevents
+		public void stopMovement()
 		{
 			_agent.isStopped = true;
 			_agent.speed = 0;
@@ -102,8 +107,10 @@ namespace Game.Enemies
 			}
 		}
 
-			#endregion
-		}
+		
+
+		#endregion
+	}
 
 }
 

@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
-
-public class EnemyHealth : MonoBehaviour, IDeath
+using Game.Enemies;
+public class EnemyHealth : MonoBehaviour
 {
 	[SerializeField] private float _health;
 
-	public void Die()
-	{
-		
-	}
+	
 
 	public void TakeDamage(float damageAmount)
 	{
@@ -20,18 +17,10 @@ public class EnemyHealth : MonoBehaviour, IDeath
 		if (_health <= 0)
 		{
 			Debug.Log($"Enemy {gameObject.name} is dead.");
-			Die();
+			gameObject.GetComponent<Enemy>().Death();
 		}
 
 	}
 
 
-}
-public interface IDeath
-{
-	public void Die() 
-	{
-		Debug.Log("Entity dead");
-	}
-	
 }
