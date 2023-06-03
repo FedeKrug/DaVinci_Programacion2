@@ -13,9 +13,9 @@ namespace Game.Enemies
             _agent.SetDestination(_target.position);
         }
 
-        protected override bool attackCondition()
+        protected override bool AttackCondition()
         {
-            if (_distance <= Mathf.Pow(_rangeToAttack, 2))
+            if (_distance <= Mathf.Pow(_rangeToAttack, _rangeToAttack))
             {
                 return true;
             }

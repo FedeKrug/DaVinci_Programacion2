@@ -41,10 +41,10 @@ namespace Game.Enemies
 
 			if (canMove)
 			{
-				if (moveCondition())
+				if (MoveCondition())
 				{
 					Move();
-					if (attackCondition())
+					if (AttackCondition())
 					{
 						Attack();
 					}
@@ -60,7 +60,7 @@ namespace Game.Enemies
 
 		#region Functions()
 		
-		protected virtual bool moveCondition()
+		protected virtual bool MoveCondition()
         {
 			if(_distance <= Mathf.Pow(_rangeToChase, 2))
             {
@@ -71,7 +71,7 @@ namespace Game.Enemies
             }
         }
 		protected abstract void Move();
-		protected abstract bool attackCondition();
+		protected abstract bool AttackCondition();
 		protected abstract void Attack();
 		//public abstract void CheckDeath(float health);
 

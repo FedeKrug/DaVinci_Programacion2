@@ -17,7 +17,7 @@ namespace Game.Enemies
             _timer -= Time.deltaTime;
         
         }
-        protected override bool attackCondition()
+        protected override bool AttackCondition()
         {
             if (_timer <= 0)
             {
