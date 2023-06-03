@@ -4,7 +4,7 @@ using Game.Managers;
 public class PauseScreen : MonoBehaviour
 {
     public static PauseScreen instance;
-
+	[SerializeField] private GameObject _pauseScreen;
 
 	#region Singleton
 	private void Awake()
@@ -35,16 +35,22 @@ public class PauseScreen : MonoBehaviour
         if (paused)
 		{
             Time.timeScale = 0;
+			_pauseScreen.SetActive(true);
 			GameManager.instance.FreeCursor();
 			GameManager.instance.ShowCursor();
 
 		}
         else
 		{
-            Time.timeScale = 1;
-			GameManager.instance.BlockCursor();
-			GameManager.instance.HideCursor();
+			ResumeGame();
 		}
 
+	}
+	public void ResumeGame()
+	{
+		Time.timeScale = 1;
+		_pauseScreen.SetActive(false);
+		GameManager.instance.BlockCursor();
+		GameManager.instance.HideCursor();
 	}
 }
