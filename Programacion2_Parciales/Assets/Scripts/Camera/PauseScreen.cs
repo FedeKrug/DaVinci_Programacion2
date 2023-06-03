@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Game.Managers;
 
 public class PauseScreen : MonoBehaviour
 {
@@ -34,11 +35,15 @@ public class PauseScreen : MonoBehaviour
         if (paused)
 		{
             Time.timeScale = 0;
+			GameManager.instance.FreeCursor();
+			GameManager.instance.ShowCursor();
+
 		}
         else
 		{
             Time.timeScale = 1;
-
+			GameManager.instance.BlockCursor();
+			GameManager.instance.HideCursor();
 		}
 
 	}
