@@ -1,4 +1,5 @@
 ﻿using Game.Managers;
+
 using UnityEngine;
 
 public class CameraArm : MonoBehaviour
@@ -26,8 +27,8 @@ public class CameraArm : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        
+        GameManager.instance.BlockCursor();
+        GameManager.instance.HideCursor();
     }
 
     private void FixedUpdate()
@@ -68,4 +69,3 @@ public class CameraArm : MonoBehaviour
     }
 
 }
-
