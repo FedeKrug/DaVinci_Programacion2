@@ -21,7 +21,7 @@ namespace Game.Enemies
 
 		protected override void Attack()
 		{
-
+			base.Attack();
 		}
 
 		protected override bool AttackCondition()
@@ -64,6 +64,12 @@ namespace Game.Enemies
 			{
 				return false;
 			}
+		}
+
+		private IEnumerator ShootMagic() // Usar el script de la clase de programacion para un disparo guiado
+		{
+			yield return null;
+
 		}
 
 		private void OnTriggerExit(Collider other)
