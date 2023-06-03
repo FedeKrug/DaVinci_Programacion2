@@ -6,7 +6,9 @@ namespace Game.Enemies
 {
     public class Enemy_Ranged : Enemy
     {
-        [SerializeField] float _timer = 5f; 
+        [SerializeField] float _timer = 5f;
+        [SerializeField] GameObject _projectile;
+        [SerializeField] Transform _projectileSpawnPoint;
         protected override void Move()
         {
             LookAtPlayer();
@@ -41,10 +43,9 @@ namespace Game.Enemies
             lookPos.y = 0;
             transform.forward = lookPos;
         }
-
-        public void spawnProjectile()
+        public override void animationAttack()
         {
-
+            GameObject.Instantiate(_projectile, _projectileSpawnPoint.position, _projectileSpawnPoint.rotation);
         }
 
 		public override void Death()
