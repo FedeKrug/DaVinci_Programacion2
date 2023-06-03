@@ -4,7 +4,7 @@ public class PlayerSprint : MonoBehaviour
 {
 	[SerializeField] private PlayerMovement _playerMovementRef;
 	[SerializeField] private float _sprintSpeed;
-	[SerializeField] private float _normalSpeed;
+	private float _normalSpeed;
 	private float _baseSpeed;
 	[SerializeField] private KeyCode _sprintKey = KeyCode.LeftShift;
 

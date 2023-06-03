@@ -3,7 +3,7 @@ using Game.Managers;
 
 public class PauseScreen : MonoBehaviour
 {
-    public static PauseScreen instance;
+	public static PauseScreen instance;
 	[SerializeField] private GameObject _pauseScreen;
 
 	#region Singleton
@@ -11,11 +11,11 @@ public class PauseScreen : MonoBehaviour
 	{
 		if (instance == null)
 		{
-            instance = this;
+			instance = this;
 		}
-        else
+		else
 		{
-            Destroy(gameObject);
+			Destroy(gameObject);
 		}
 	}
 	#endregion
@@ -26,21 +26,21 @@ public class PauseScreen : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Pause"))
 		{
-            PauseGame();
+			PauseGame();
 		}
 	}
-    private void PauseGame()
+	private void PauseGame()
 	{
-        paused = !paused;
-        if (paused)
+		paused = !paused;
+		if (paused)
 		{
-            Time.timeScale = 0;
+			CombatManager.instance.inputReceived = false;
+			Time.timeScale = 0;
 			_pauseScreen.SetActive(true);
 			GameManager.instance.FreeCursor();
 			GameManager.instance.ShowCursor();
-
 		}
-        else
+		else
 		{
 			ResumeGame();
 		}
@@ -48,6 +48,7 @@ public class PauseScreen : MonoBehaviour
 	}
 	public void ResumeGame()
 	{
+		CombatManager.instance.inputReceived = false;
 		Time.timeScale = 1;
 		_pauseScreen.SetActive(false);
 		GameManager.instance.BlockCursor();
