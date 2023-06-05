@@ -6,7 +6,8 @@ namespace Game.Enemies
 {
     public class Enemy_Ranged : Enemy
     {
-        [SerializeField] float _timer = 5f; 
+        [SerializeField] float _timer = 5f;
+        [SerializeField] GameObject _bomberProjectile; 
         protected override void Move()
         {
             LookAtPlayer();
@@ -51,5 +52,10 @@ namespace Game.Enemies
 		{
             Debug.Log($"EnemyRanged is dead");
 		}
-	}
+
+        public override void animationAttack()
+        {
+            GameObject.Instantiate(_bomberProjectile, _attckSpawnPoint);
+        }
+    }
 }

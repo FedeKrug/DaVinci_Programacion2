@@ -11,6 +11,8 @@ namespace Game.Enemies
 	{
 		[Header("Stats")]
 		[SerializeField] protected float damage;
+		[SerializeField] protected float _attkRange = 5f;
+		[SerializeField] protected Transform _attckSpawnPoint;
 
 
 		[Header("Animator")]
@@ -98,7 +100,16 @@ namespace Game.Enemies
 			canMove = true;
 		}
 
-        #endregion
-    }
+		public abstract void animationAttack();
+		
+
+		/*private void OnDrawGizmosSelected()//Se usa para ver el rango de atq, No hace falta llamarla (siempre activa en la scene). Comentar cuando se deje de usar
+		{
+			Gizmos.color = Color.blue;
+			Gizmos.DrawWireSphere(_attckSpawnPoint.position, _attkRange);
+		}*/
+
+		#endregion
+	}
 
 }
