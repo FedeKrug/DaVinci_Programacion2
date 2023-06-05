@@ -101,13 +101,19 @@ namespace Game.Enemies
 		}
 
 		public abstract void animationAttack();
+
+		public void destroyOnAnimation()
+        {
+			Destroy(this.gameObject);
+        }
 		
 
-		/*private void OnDrawGizmosSelected()//Se usa para ver el rango de atq, No hace falta llamarla (siempre activa en la scene). Comentar cuando se deje de usar
+		private void OnDrawGizmosSelected()//Se usa para ver el rango de atq, No hace falta llamarla (siempre esta activa en la scene). Comentar cuando se deje de usar
 		{
-			Gizmos.color = Color.blue;
+			Gizmos.color = Color.red;
 			Gizmos.DrawWireSphere(_attckSpawnPoint.position, _attkRange);
-		}*/
+		}
+
 
 		#endregion
 	}

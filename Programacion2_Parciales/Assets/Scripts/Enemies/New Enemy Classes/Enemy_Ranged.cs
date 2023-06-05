@@ -6,6 +6,7 @@ namespace Game.Enemies
 {
     public class Enemy_Ranged : Enemy
     {
+        [Header("Ranged Stats")]
         [SerializeField] float _timer = 5f;
         [SerializeField] GameObject _bomberProjectile; 
         protected override void Move()
@@ -55,7 +56,7 @@ namespace Game.Enemies
 
         public override void animationAttack()
         {
-            GameObject.Instantiate(_bomberProjectile, _attckSpawnPoint);
+            GameObject.Instantiate(_bomberProjectile, _attckSpawnPoint.position, _attckSpawnPoint.rotation);
         }
     }
 }
