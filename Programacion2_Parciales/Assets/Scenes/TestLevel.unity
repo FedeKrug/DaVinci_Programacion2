@@ -513,6 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235ea879272baa542ab15581dcc437ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   damage: 60
   _anim: {fileID: 1523301055}
   _agent: {fileID: 401239167}
@@ -1777,7 +1778,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 5
   canMove: 1
-  _atkButttonindex: 0
   _xAxisName: xAxis
   _zAxisName: zAxis
   _cameraRef: {fileID: 963194230}
@@ -2242,7 +2242,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2672
+  m_Name: pb_Mesh-2670
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5124,6 +5124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c39d1054140e64e9d8a4d7c7c4dac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   damage: 2
   _anim: {fileID: 1068255308}
   _agent: {fileID: 1961378945}
@@ -5131,6 +5132,8 @@ MonoBehaviour:
   _rangeToChase: 10
   _rangeToAttack: 9
   _timer: 5
+  _projectile: {fileID: 0}
+  _projectileSpawnPoint: {fileID: 0}
 --- !u!195 &1961378945
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5506,5 +5509,13 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 854158863}
+    - target: {fileID: 8849552925855211511, guid: 58e5fdb45b8693741893263c9630519e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb673fe1ab4b33e42b2ad0fdc15d54b7, type: 2}
+    - target: {fileID: 8849552926257151478, guid: 58e5fdb45b8693741893263c9630519e, type: 3}
+      propertyPath: m_MaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: fb673fe1ab4b33e42b2ad0fdc15d54b7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58e5fdb45b8693741893263c9630519e, type: 3}
