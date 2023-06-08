@@ -7,7 +7,7 @@ using Game.Managers;
 public class Explosive : Damagable
 {
 	[SerializeField] protected float _explosiveRange;
-	[SerializeField] protected LayerMask _explosiveLayer;
+	//[SerializeField] protected LayerMask _explosiveLayer;
 	[SerializeField] protected float _explosionForce;
 	[SerializeField] protected float _upForce;
 	public override void UseBehaviour()
