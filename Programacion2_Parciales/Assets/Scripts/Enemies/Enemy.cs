@@ -10,10 +10,11 @@ namespace Game.Enemies
 	public abstract class Enemy : MonoBehaviour
 	{
 		[Header("Stats")]
-		[SerializeField] public float health;
-		[SerializeField] protected float damage = 100f;
-
-
+		[SerializeField] protected float damage;
+		[SerializeField] protected float _attkRange = 5f;
+		[SerializeField] protected Transform _attckSpawnPoint;
+		
+		public bool isAlive;
 		[Header("Animator")]
 		[SerializeField] protected Animator _anim;
 
@@ -26,7 +27,7 @@ namespace Game.Enemies
 
 		protected Transform _target;
 		protected float _distance;
-		protected bool canMove = true;
+		public bool canMove = true;
 
 
 		protected void Start()
@@ -35,50 +36,51 @@ namespace Game.Enemies
 			_target = PlayerManager.instance.playerTransform; //una referencia desde el playerManager para que incluso los prefabs sepan donde esta el player.
 			_agent.speed = _speed;
 		}
-        private void Update()
-        {
+		private void Update()
+		{
 			_distance = (transform.position - _target.position).sqrMagnitude;
-
-			if (canMove)
-			{
-				if (MoveCondition())
+			
+				if (moveCondition())
 				{
 					Move();
-					if (AttackCondition())
+					if (attackCondition())
 					{
 						Attack();
 					}
 				}
-				else
+				else if (!moveCondition())
 				{
 					_anim.SetBool("InChaseRange", false);
 					_agent.velocity = Vector3.zero;
 				}
-			}
+			
 		}
 
 
 		#region Functions()
-		
-		protected virtual bool MoveCondition()
-        {
-			if(_distance <= Mathf.Pow(_rangeToChase, 2))
-            {
-				return true;
-            } else
-            {
-				return false;
-            }
-        }
-		protected abstract void Move();
-		protected abstract bool AttackCondition();
-		protected abstract void Attack();
-		//public abstract void CheckDeath(float health);
 
-		public virtual void Death()
+		protected virtual bool moveCondition()
 		{
-			Debug.Log($"The enemy {gameObject.name} is dead");
+			if (_distance <= Mathf.Pow(_rangeToChase, 2) && isAlive)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
+		protected abstract void Move();
+		protected abstract bool attackCondition();
+		protected abstract void Attack();
+		public virtual void CheckDeath(float health)
+		{
+			if (health <= 0)
+			{
+				Death();
+			}
+		}
+		public abstract void Death();
 		#endregion
 
 		#region Animationevents
@@ -97,65 +99,22 @@ namespace Game.Enemies
 			canMove = true;
 		}
 
-		public virtual void animationAttack()
-        {
-			Collider[] player = Physics.OverlapSphere(transform.position, 5f);
-			foreach (Collider contact in player)
-			{
-				if (contact.CompareTag("Player"))
-					EventManager.instance.playerDamaged.Invoke(damage);
-			}
+		public abstract void animationAttack();
+
+		public void destroyOnAnimation()
+		{
+			Destroy(this.gameObject);
 		}
 
-		
+
+		private void OnDrawGizmosSelected()//Se usa para ver el rango de atq, No hace falta llamarla (siempre esta activa en la scene). Comentar cuando se deje de usar
+		{
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(_attckSpawnPoint.position, _attkRange);
+		}
+
 
 		#endregion
 	}
 
 }
-
-		/*protected void Update()
-		{
-			_distance = (transform.position - _target.position).sqrMagnitude;
-
-			if (canMove)
-			{
-				if (_distance <= Mathf.Pow(_rangeToChase, 2))
-				{
-					_anim.SetBool("InChaseRange", true);
-					goToTarget();
-
-					if (_distance <= Mathf.Pow(_rangeToAttack, 2))
-					{
-						_anim.SetTrigger("InAttackRange");
-					}
-
-				}
-			}
-			else
-			{
-				_anim.SetBool("InChaseRange", false);
-			}
-		}
-		public abstract void CheckDeath(float health);
-		public void stopMovement()
-        {
-			_agent.isStopped = true;
-			canMove = false;
-        }
-
-		public void startMovement()
-        {
-			_agent.isStopped = false;
-			canMove = true;
-		}
-
-		public abstract void goToTarget();
-		
-	}
-}
-
-*/
-
-//CheckDeath(); //TODO: Llamar a esta funcion solo cuando el enemigo recibe daño. >>> Iria al final del update
-//canMove = true; //una confirmacion para el movimiento del enemy. TODO: cuando sea false, setear la velocidad de navmesh a 0, y cuando es true, a su velocidad normal. >>> Iria al final del Start
