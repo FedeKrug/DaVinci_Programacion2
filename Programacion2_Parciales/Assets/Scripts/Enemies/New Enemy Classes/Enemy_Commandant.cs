@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using Game.Managers;
 using Game.Interfaces;
 
 using UnityEngine;
@@ -9,10 +9,10 @@ namespace Game.Enemies
 {
 	public class Enemy_Commandant : Enemy_CloseQuarters
 	{
-		[SerializeField] private bool _battleAvailable; //un bool para determinar si el boss (commandant) puede saltar a escena a pelear con el player
+		[Header("Enemies Spawner")]
+		[SerializeField] public bool battleAvailable; //un bool para determinar si el boss (commandant) puede saltar a escena a pelear con el player
 		[SerializeField] private int _enemyCant = 6;
-
-
+		[SerializeField] private Transform[] _enemiesSpawnPoints;
 
 		public override void Death()
 		{
@@ -24,9 +24,9 @@ namespace Game.Enemies
 			base.Attack();
 		}
 
-		protected override bool AttackCondition()
+		protected override bool attackCondition()
 		{
-			if (_distance <= Mathf.Pow(_rangeToAttack, _rangeToAttack))
+			if (_distance <= Mathf.Pow(_rangeToAttack, _rangeToAttack) && battleAvailable)
 			{
 				return true;
 			}
@@ -41,9 +41,9 @@ namespace Game.Enemies
 			base.Move();
 		}
 
-		protected override bool MoveCondition()
+		protected override bool moveCondition()
 		{
-			if (ReduceEnemies())
+			if (CheckEnemyCant())
 			{
 				return true;
 			}
@@ -53,7 +53,7 @@ namespace Game.Enemies
 			}
 		}
 
-		private bool ReduceEnemies()
+		private bool CheckEnemyCant()
 		{
 			_enemyCant--;
 			if (_enemyCant <= 0)
@@ -66,19 +66,5 @@ namespace Game.Enemies
 			}
 		}
 
-		private IEnumerator ShootMagic() // Usar el script de la clase de programacion para un disparo guiado
-		{
-			yield return null;
-
-		}
-
-		private void OnTriggerExit(Collider other)
-		{
-			if (other.CompareTag("EnemySummoned")) //enemigo invocado
-			{
-				ReduceEnemies();
-			}
-		}
 	}
-
 }

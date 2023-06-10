@@ -77,6 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ce5facf69807d498be10b36d60f0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 10
+  lifeTime: 3
+  damage: 5
 --- !u!114 &1644740568964410602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,10 +94,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   _explosiveRange: 20
-  _explosiveLayer:
-    serializedVersion: 2
-    m_Bits: 1
   _explosionForce: 20
+  _upForce: 0
+  _speed: 5
 --- !u!1 &1644740569264590412
 GameObject:
   m_ObjectHideFlags: 0
