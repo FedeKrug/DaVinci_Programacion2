@@ -11,9 +11,6 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	[SerializeField] private float _movementSpeed = 5f;
 	public bool canMove;
 
-	[Header("Inputs")]
-	[SerializeField] private int _atkButttonindex = 0;
-
 	[Header("Animator")]
 	Animator _animator;
 	[SerializeField] private string _xAxisName = "xAxis";
