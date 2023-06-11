@@ -55,7 +55,7 @@ namespace Game.Enemies
 
 		private bool CheckEnemyCant()
 		{
-			_enemyCant--;
+			//_enemyCant--;
 			if (_enemyCant <= 0)
 			{
 				return true;
