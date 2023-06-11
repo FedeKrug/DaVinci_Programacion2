@@ -24,7 +24,7 @@ namespace Game.Enemies
 		}
 		
 
-		IEnumerator CO_SpawnBullets()
+		public IEnumerator CO_SpawnBullets()
 		{
 			var projectileSpawnPoint = _projectileSpawners[Random.Range(0, _projectileSpawners.Length)];
 			_instBullet = Instantiate(_bullet,  projectileSpawnPoint.position, transform.rotation);

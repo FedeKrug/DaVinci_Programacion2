@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf4b290ef98e624e91f2faa98728cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 200
-  _explosiveRange: 20
-  _explosionForce: 500
+  damage: 20
+  _explosiveRange: 10
+  _explosionForce: 250
   _upForce: 2
-  _speed: 5
+  _speed: 10
 --- !u!135 &3580724324782810593
 SphereCollider:
   m_ObjectHideFlags: 0

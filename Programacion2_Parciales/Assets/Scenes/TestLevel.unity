@@ -5602,9 +5602,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6674163706083470332, guid: e16069af7a5990443bf92a0f7645c9c3, type: 3}
+      propertyPath: _rangeToChase
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674163706083470332, guid: e16069af7a5990443bf92a0f7645c9c3, type: 3}
       propertyPath: _bulletSpawner
       value: 
       objectReference: {fileID: 1651156442}
+    - target: {fileID: 6674163706083470332, guid: e16069af7a5990443bf92a0f7645c9c3, type: 3}
+      propertyPath: _rangeToAttack
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6674163706083470333, guid: e16069af7a5990443bf92a0f7645c9c3, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -5651,11 +5659,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6674163706083470335, guid: e16069af7a5990443bf92a0f7645c9c3, type: 3}
       propertyPath: _cooldown
-      value: 10
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6674163706083470335, guid: e16069af7a5990443bf92a0f7645c9c3, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674163706083470335, guid: e16069af7a5990443bf92a0f7645c9c3, type: 3}
+      propertyPath: _bulletLifetime
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6674163706083470335, guid: e16069af7a5990443bf92a0f7645c9c3, type: 3}
       propertyPath: _projectileSpawners.Array.size
