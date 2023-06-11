@@ -11,6 +11,8 @@ public class ExplosiveBullet : Explosive
 {
 	private Rigidbody _rb;
 	[SerializeField] private float _speed = 5;
+	//[SerializeField] private Transform _spawnPoint;
+
 
 	public void InizializeBullet(Transform target, float lifetime)
 	{
@@ -25,13 +27,14 @@ public class ExplosiveBullet : Explosive
 		float tick = 0f;
 		while (tick <=1)
 		{
+			//dir = new Vector3 ((target.position.x - transform.position.x), _spawnPoint.position.y, (target.position.z - transform.position.z)).normalized;
 			dir = (target.position - transform.position).normalized;
 			_rb.MovePosition(transform.position += dir * _speed * Time.deltaTime);
 			tick += Time.deltaTime/ lifetime;
 			yield return null;
 		}
 		UseBehaviour();
-		Destroy(gameObject);
+		
 	}
 
 	private void OnTriggerEnter(Collider other)
