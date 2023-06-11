@@ -12,16 +12,19 @@ namespace Game.Enemies
 		[Header("Enemies Spawner")]
 		[SerializeField] public bool battleAvailable; //un bool para determinar si el boss (commandant) puede saltar a escena a pelear con el player
 		[SerializeField] private int _enemyCant = 6;
-		[SerializeField] private Transform[] _enemiesSpawnPoints;
+		[SerializeField] private EnemyBulletSpawner _bulletSpawner;
 
 		public override void Death()
 		{
 			base.Death();
+			_bulletSpawner.enabled = false;
 		}
 
 		protected override void Attack()
 		{
 			base.Attack();
+			battleAvailable = true;
+			_bulletSpawner.enabled = true;
 		}
 
 		protected override bool attackCondition()
@@ -43,7 +46,7 @@ namespace Game.Enemies
 
 		protected override bool moveCondition()
 		{
-			if (CheckEnemyCant())
+			if (CheckEnemyCant() && base.moveCondition())
 			{
 				return true;
 			}

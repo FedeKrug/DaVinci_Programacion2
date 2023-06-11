@@ -63,7 +63,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.38552213
+  m_Radius: 0.6320267
   m_Height: 3.1600823
   m_Direction: 1
   m_Center: {x: 0.008009195, y: 1.5923779, z: -0.011776894}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb83643e5e5e0ee49a40410bf374c9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 30
+  _health: 45
   _enemyMaterial: {fileID: 2100000, guid: dbbe912d5436fee4aa942331e3629724, type: 2}
   _anim: {fileID: 3964356724017117445}
   _enemyRef: {fileID: 3964356724969485769}
