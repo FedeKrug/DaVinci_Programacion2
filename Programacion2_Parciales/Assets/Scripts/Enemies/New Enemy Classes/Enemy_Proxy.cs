@@ -21,5 +21,15 @@ namespace Game.Enemies
         {
             _enemy.stopMovement();
         }
+
+        private void attackDmg()
+        {
+            _enemy.animationAttack();
+        }
+
+        private void Destroy()
+        {
+            _enemy.destroyOnAnimation();
+        }
     }
 }

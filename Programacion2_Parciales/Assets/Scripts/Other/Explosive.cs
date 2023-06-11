@@ -2,17 +2,18 @@
 using Game.Enemies;
 using UnityEngine;
 using Game.Managers;
-
+using System.Collections;
 
 public class Explosive : Damagable
 {
 	[SerializeField] protected float _explosiveRange;
-	[SerializeField] protected LayerMask _explosiveLayer;
 	[SerializeField] protected float _explosionForce;
 	[SerializeField] protected float _upForce;
+	[SerializeField] protected GameObject _particleEffect;
 	public override void UseBehaviour()
 	{
 		Explode();
+		StartCoroutine(CO_ParticleExplosion());
 	}
 	protected void Explode()
 	{
@@ -39,5 +40,12 @@ public class Explosive : Damagable
 				}
 			}
 		}
+	}
+	
+	private IEnumerator CO_ParticleExplosion()
+	{
+		_particleEffect.SetActive(true);
+		yield return new WaitForSeconds(3);
+		Destroy(gameObject);
 	}
 }

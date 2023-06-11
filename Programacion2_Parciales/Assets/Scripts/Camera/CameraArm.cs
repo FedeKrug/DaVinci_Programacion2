@@ -1,4 +1,5 @@
 ﻿using Game.Managers;
+using Game.SO;
 using UnityEngine;
 
 public class CameraArm : MonoBehaviour
@@ -11,7 +12,7 @@ public class CameraArm : MonoBehaviour
     [SerializeField] private float _camDistance = 6f;
     [SerializeField] private float _hitOffset= .2f; 
     [SerializeField] private float _minClamp, _maxClamp;
-    [SerializeField] private float _mouseSensitivity;
+    [SerializeField] private FloatSO _mouseSensitivity;
     [SerializeField] private LayerMask _camViewLayer;
     [Header("Player")]
     [SerializeField] private Transform _target;
@@ -26,8 +27,8 @@ public class CameraArm : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        
+        GameManager.instance.BlockCursor();
+        GameManager.instance.HideCursor();
     }
 
     private void FixedUpdate()
@@ -41,8 +42,8 @@ public class CameraArm : MonoBehaviour
     private void LateUpdate()
     {
         transform.position = _target.position;
-        _mouseX += Input.GetAxisRaw("Mouse X") * _mouseSensitivity * Time.deltaTime;
-        _mouseY += Input.GetAxisRaw("Mouse Y") * _mouseSensitivity * Time.deltaTime;
+        _mouseX += Input.GetAxisRaw("Mouse X") * _mouseSensitivity.value * Time.deltaTime;
+        _mouseY += Input.GetAxisRaw("Mouse Y") * _mouseSensitivity.value * Time.deltaTime;
         if (_mouseX <=-360 || _mouseX>=360)
         {
             _mouseX -= 360 * Mathf.Sign(_mouseX);
@@ -68,4 +69,3 @@ public class CameraArm : MonoBehaviour
     }
 
 }
-

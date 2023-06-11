@@ -11,8 +11,10 @@ namespace Game.Enemies
 	{
 		[Header("Stats")]
 		[SerializeField] protected float damage;
-
-
+		[SerializeField] protected float _attkRange = 5f;
+		[SerializeField] protected Transform _attckSpawnPoint;
+		
+		public bool isAlive;
 		[Header("Animator")]
 		[SerializeField] protected Animator _anim;
 
@@ -25,7 +27,7 @@ namespace Game.Enemies
 
 		protected Transform _target;
 		protected float _distance;
-		protected bool canMove = true;
+		public bool canMove = true;
 
 
 		protected void Start()
@@ -34,12 +36,10 @@ namespace Game.Enemies
 			_target = PlayerManager.instance.playerTransform; //una referencia desde el playerManager para que incluso los prefabs sepan donde esta el player.
 			_agent.speed = _speed;
 		}
-        private void Update()
-        {
+		private void Update()
+		{
 			_distance = (transform.position - _target.position).sqrMagnitude;
-
-			if (canMove)
-			{
+			
 				if (moveCondition())
 				{
 					Move();
@@ -48,42 +48,43 @@ namespace Game.Enemies
 						Attack();
 					}
 				}
-				else
+				else if (!moveCondition())
 				{
 					_anim.SetBool("InChaseRange", false);
 					_agent.velocity = Vector3.zero;
 				}
-			}
+			
 		}
 
 
 		#region Functions()
-		
+
 		protected virtual bool moveCondition()
-        {
-			if(_distance <= Mathf.Pow(_rangeToChase, 2))
-            {
+		{
+			if (_distance <= Mathf.Pow(_rangeToChase, 2) && isAlive)
+			{
 				return true;
-            } else
-            {
+			}
+			else
+			{
 				return false;
-            }
-        }
+			}
+		}
 		protected abstract void Move();
 		protected abstract bool attackCondition();
 		protected abstract void Attack();
 		public virtual void CheckDeath(float health)
 		{
-			if (health<=0)
+			if (health <= 0)
 			{
 				Death();
 			}
 		}
 		public abstract void Death();
-        #endregion
+		#endregion
 
-        #region Animationevents
-        public void stopMovement()
+		#region Animationevents
+		public void stopMovement()
 		{
 			_agent.isStopped = true;
 			_agent.speed = 0;
@@ -98,7 +99,22 @@ namespace Game.Enemies
 			canMove = true;
 		}
 
-        #endregion
-    }
+		public abstract void animationAttack();
+
+		public void destroyOnAnimation()
+		{
+			Destroy(this.gameObject);
+		}
+
+
+		private void OnDrawGizmosSelected()//Se usa para ver el rango de atq, No hace falta llamarla (siempre esta activa en la scene). Comentar cuando se deje de usar
+		{
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(_attckSpawnPoint.position, _attkRange);
+		}
+
+
+		#endregion
+	}
 
 }
