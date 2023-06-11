@@ -20,7 +20,9 @@ public class EnemySpawnPoint : MonoBehaviour
 	{
 		while (_currentEnemyCant > 0)
 		{
-			Instantiate(_enemyToSpawn[Random.Range(0, _enemyToSpawn.Length)].gameObject, transform.position, transform.rotation);
+			var RandomEnemy = _enemyToSpawn[Random.Range(0, _enemyToSpawn.Length)].gameObject;
+			Instantiate(RandomEnemy, transform.position, transform.rotation);
+			RandomEnemy.tag = "EnemySummoned";
 			yield return new WaitForSeconds(_spawnerCooldown);
 			_currentEnemyCant--;
 		}

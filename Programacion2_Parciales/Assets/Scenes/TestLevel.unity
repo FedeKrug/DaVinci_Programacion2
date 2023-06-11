@@ -4100,7 +4100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91d6655bdf75774c99b4add7301448d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxEnemyCant: 10
+  _maxEnemyCant: 4
   _enemyToSpawn:
   - {fileID: 3964356724969485769, guid: 9d696231c610032429592a64ab3779cd, type: 3}
   - {fileID: 4399771883856746885, guid: 05e5a3de7d2ccb043842c2b093c36c30, type: 3}
