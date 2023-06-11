@@ -11,6 +11,7 @@ namespace Game.Enemies
 		[SerializeField] private float _bulletLifetime;
 		[SerializeField] private float _cooldown;
 		[SerializeField] private ExplosiveBullet _bullet;
+		[SerializeField] private Transform[] _projectileSpawners;
 		private ExplosiveBullet _instBullet;
 		private Transform _target;
 
@@ -25,8 +26,8 @@ namespace Game.Enemies
 
 		IEnumerator CO_SpawnBullets()
 		{
-
-			_instBullet = Instantiate(_bullet, transform.position, transform.rotation);
+			var projectileSpawnPoint = _projectileSpawners[Random.Range(0, _projectileSpawners.Length)];
+			_instBullet = Instantiate(_bullet,  projectileSpawnPoint.position, transform.rotation);
 			_instBullet.InizializeBullet(_target, _bulletLifetime);
 			yield return new WaitForSeconds(_cooldown);
 			StartCoroutine(CO_SpawnBullets());

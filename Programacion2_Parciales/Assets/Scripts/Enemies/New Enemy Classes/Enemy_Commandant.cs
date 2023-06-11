@@ -29,8 +29,9 @@ namespace Game.Enemies
 
 		protected override bool attackCondition()
 		{
-			if (_distance <= Mathf.Pow(_rangeToAttack, _rangeToAttack) && battleAvailable)
+			if (_distance <= Mathf.Pow(_rangeToAttack, 2))
 			{
+				battleAvailable = true;
 				return true;
 			}
 			else

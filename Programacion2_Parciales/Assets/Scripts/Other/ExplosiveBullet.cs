@@ -31,6 +31,7 @@ public class ExplosiveBullet : Explosive
 			yield return null;
 		}
 		UseBehaviour();
+		Destroy(gameObject);
 	}
 
 	private void OnTriggerEnter(Collider other)
