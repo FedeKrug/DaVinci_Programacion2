@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	public bool canMove;
 
 	[Header("Animator")]
-	Animator _animator;
+	public Animator animator;
 	[SerializeField] private string _xAxisName = "xAxis";
 	[SerializeField] private string _zAxisName = "zAxis";
 
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	{
 		_rb = GetComponent<Rigidbody>();
 		_rb.constraints = RigidbodyConstraints.FreezeRotation;
-		if (_animator == null) _animator = GetComponentInChildren<Animator>();
+		if (animator == null) animator = GetComponentInChildren<Animator>();
 	}
 
 	private void Update()
@@ -40,8 +40,8 @@ public class PlayerMovement : MonoBehaviour, Explotable
 		xAxis = Input.GetAxis("Horizontal");
 		zAxis = Input.GetAxis("Vertical");
 
-		_animator.SetFloat(_xAxisName, xAxis);
-		_animator.SetFloat(_zAxisName, zAxis);
+		animator.SetFloat(_xAxisName, xAxis);
+		animator.SetFloat(_zAxisName, zAxis);
 	}
 
 	private void FixedUpdate()

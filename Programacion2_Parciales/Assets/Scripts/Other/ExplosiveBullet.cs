@@ -25,7 +25,7 @@ public class ExplosiveBullet : Explosive
 		float tick = 0f;
 		while (tick <=1)
 		{
-			dir = (target.position - transform.position).normalized;
+			dir = new Vector3 ((target.position.x - transform.position.x), transform.position.y, (target.position.z - transform.position.z)).normalized;
 			_rb.MovePosition(transform.position += dir * _speed * Time.deltaTime);
 			tick += Time.deltaTime/ lifetime;
 			yield return null;
