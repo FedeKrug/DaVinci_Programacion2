@@ -4910,11 +4910,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  _explosiveRange: 10
-  _explosionForce: 250
-  _upForce: 2
+  _explosiveRange: 3
+  _explosionForce: 100
+  _upForce: 0
   _particleEffect: {fileID: 1321493824333699674}
-  _speed: 10
+  _speed: 3
 --- !u!135 &3580724324782810593
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5037,7 +5037,7 @@ SphereCollider:
   m_GameObject: {fileID: 3580724325620844353}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

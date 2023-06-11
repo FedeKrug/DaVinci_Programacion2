@@ -46,5 +46,6 @@ public class Explosive : Damagable
 	{
 		_particleEffect.SetActive(true);
 		yield return new WaitForSeconds(3);
+		Destroy(gameObject);
 	}
 }
