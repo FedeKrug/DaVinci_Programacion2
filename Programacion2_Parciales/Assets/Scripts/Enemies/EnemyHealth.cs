@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
 		_health -= damageAmount;
 		StartCoroutine(CO_TintRed());
 		CheckDeath();
-		//Debug.Log($"Enemy lost {damageAmount} points of health.");
+		
 	}
 	private void CheckDeath()
 	{
