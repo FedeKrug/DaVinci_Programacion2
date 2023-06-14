@@ -10,6 +10,7 @@ public class Explosive : Damagable
 	[SerializeField] protected float _explosionForce;
 	[SerializeField] protected float _upForce;
 	[SerializeField] protected GameObject _particleEffect;
+	//TODO: Variable para tiempo de destruccion de ExplosiveBullet
 	public override void UseBehaviour()
 	{
 		Explode();
