@@ -23,7 +23,7 @@ public class PlayerSprint : MonoBehaviour
 		{
 			_baseSpeed = _sprintSpeed;
 			float newSpeed = _sprintSpeed / _normalSpeed;
-			_playerMovementRef.animator.SetFloat(_sprintParameterAnim, (newSpeed));
+			_playerMovementRef.animator.SetFloat(_sprintParameterAnim, (2));
 			//_playerMovementRef.animator.speed = 2;
 			//Debug.Log($"new speed is {newSpeed}, and the value has to be {_sprintSpeed/_baseSpeed}, base speed is {_baseSpeed} and sprintSpeed is {_sprintSpeed}");
 			//Debug.Log($"normalSpeed (private) is {_normalSpeed}");
@@ -31,7 +31,7 @@ public class PlayerSprint : MonoBehaviour
 		if (Input.GetKeyUp(_sprintKey))
 		{
 			_baseSpeed = _normalSpeed;
-			_playerMovementRef.animator.SetFloat(_sprintParameterAnim, (_sprintSpeed / _baseSpeed)*(_baseSpeed / _sprintSpeed));
+			_playerMovementRef.animator.SetFloat(_sprintParameterAnim, 1);
 			//_playerMovementRef.animator.speed = 1;
 
 		}
