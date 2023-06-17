@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.018058427, g: 0.07167271, b: 0.046384502, a: 1}
+  m_IndirectSpecularColor: {r: 0.0025291361, g: 0.010035191, b: 0.0064929063, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -988,9 +988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f288bba91057a324bb6ba13a18ab4df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 5
+  _movementSpeed: 4
   canMove: 1
-  animator: {fileID: 0}
+  animator: {fileID: 223230244}
   _xAxisName: xAxis
   _zAxisName: zAxis
   _cameraRef: {fileID: 963194230}
@@ -1070,7 +1070,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMovementRef: {fileID: 759388672}
-  _sprintSpeed: 10
+  _sprintSpeed: 15
+  _sprintParameterAnim: sprintMultiplier
+  _inSprint: 0
   _sprintKey: 304
 --- !u!1 &781916515
 GameObject:
