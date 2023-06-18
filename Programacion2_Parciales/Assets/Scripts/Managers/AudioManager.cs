@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour //lo hago todo en el mismo porque esto
 
     [Header("Sliders")]
     [SerializeField] Slider[] _volumeSliders;
-    [Range(0.0001f, 1f)] [SerializeField] float _initialMasterVolume = .25f;
+    [Range(0.0001f, 1f)] [SerializeField] float _initialMasterVolume = .125f;
 
     private void Start()
     {
