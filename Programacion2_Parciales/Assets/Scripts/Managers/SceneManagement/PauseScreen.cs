@@ -24,7 +24,7 @@ public class PauseScreen : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetButtonDown("Pause"))
+		if (Input.GetButtonDown("Pause") && _pauseScreen != null)
 		{
 			PauseGame();
 		}
