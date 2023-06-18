@@ -10,8 +10,8 @@ namespace Game.Managers
 	{
 		public static UIManager instance;
 
-		[SerializeField] private FloatSO _SfxVolume;
-		[SerializeField] private FloatSO _mouseSensibility;
+
+		
 		[SerializeField] private Image _healthBar;
 		private void Awake()
 		{
@@ -36,7 +36,9 @@ namespace Game.Managers
 		}
 		private void UpdateHealthUIHandler(float maxPlayerHealth, float playerHealth)
 		{
+
 			_healthBar.fillAmount = playerHealth / maxPlayerHealth;
+
 		}
 
 

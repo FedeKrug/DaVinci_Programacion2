@@ -13,7 +13,7 @@ namespace Game.Managers
 			if (instance == null)
 			{
 				instance = this;
-				DontDestroyOnLoad(gameObject);
+				
 			}
 			else
 			{
@@ -21,8 +21,13 @@ namespace Game.Managers
 			}
 		}
 		#endregion
+		[SerializeField] private CanvasManager _canvasRef;
 		public void ChangeScene(string SceneToChange)
 		{
+			if (_canvasRef)
+			{
+				Destroy(_canvasRef.gameObject);
+			}
 			SceneManager.LoadScene(SceneToChange);
 		}
 
