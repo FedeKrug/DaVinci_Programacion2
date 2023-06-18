@@ -5,6 +5,7 @@ namespace Game.Managers
 {
 	public class SceneLoader : MonoBehaviour
 	{
+		#region Singleton
 		public static SceneLoader instance;
 		
 		private void Awake()
@@ -12,15 +13,22 @@ namespace Game.Managers
 			if (instance == null)
 			{
 				instance = this;
+				DontDestroyOnLoad(gameObject);
 			}
 			else
 			{
 				Destroy(gameObject);
 			}
 		}
+		#endregion
 		public void ChangeScene(string SceneToChange)
 		{
 			SceneManager.LoadScene(SceneToChange);
+		}
+
+		public void AdditiveScene()
+		{
+
 		}
 
 		public void ReloadScene()
