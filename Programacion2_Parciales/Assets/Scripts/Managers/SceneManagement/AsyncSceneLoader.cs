@@ -69,7 +69,7 @@ namespace Game.Managers
 				yield return null;
 			}
 			asyncLoad.allowSceneActivation = true;
-			GetComponent<CanvasManager>().DestroyMenus();
+			GetComponent<CanvasManager>().TurnOffMenus();
 		}
 
 

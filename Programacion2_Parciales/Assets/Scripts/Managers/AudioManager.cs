@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using Game.SO;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour //lo hago todo en el mismo porque esto permite llevar la pantalla de opciones al gameplay
