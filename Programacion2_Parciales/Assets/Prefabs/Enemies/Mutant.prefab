@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletLifetime: 1.5
-  _cooldown: 0.8
+  _cooldown: 15
   _bullet: {fileID: 3580724324782810595, guid: 169d00572c51a00418f58f45f260b53f, type: 3}
   _projectileSpawners:
   - {fileID: 6674163707841763047}
