@@ -69,8 +69,12 @@ namespace Game.Managers
 		}
 		public void Die()
 		{
-
+			StartCoroutine(CO_PlayerDeath());
 		}
-
+		private IEnumerator CO_PlayerDeath()
+		{
+			yield return null;
+			Debug.Log($"Player is dead... TODO: Crear la corroutine para la muerte del player");
+		}
 	}
 }
