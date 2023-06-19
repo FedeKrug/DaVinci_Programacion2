@@ -10,6 +10,8 @@ public class Explosive : Damagable
 	[SerializeField] protected float _explosionForce;
 	[SerializeField] protected float _upForce;
 	[SerializeField] protected GameObject _particleEffect;
+	[SerializeField] protected float _particleTime;
+	//TODO: Variable para tiempo de destruccion de ExplosiveBullet
 	public override void UseBehaviour()
 	{
 		Explode();
@@ -45,7 +47,7 @@ public class Explosive : Damagable
 	private IEnumerator CO_ParticleExplosion()
 	{
 		_particleEffect.SetActive(true);
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(_particleTime);
 		Destroy(gameObject);
 	}
 }

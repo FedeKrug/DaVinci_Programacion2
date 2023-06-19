@@ -8,6 +8,8 @@ public class EnemySpawnPoint : MonoBehaviour
 	[SerializeField] private int _maxEnemyCant;
 	[SerializeField] private Enemy[] _enemyToSpawn;
 	[SerializeField] private float _spawnerCooldown;
+	[SerializeField] private float _explosionForce;
+	[SerializeField] private float _explosionRadius;
 	private float _currentEnemyCant;
 
 	private void Start()
@@ -22,7 +24,10 @@ public class EnemySpawnPoint : MonoBehaviour
 		{
 			var RandomEnemy = _enemyToSpawn[Random.Range(0, _enemyToSpawn.Length)].gameObject;
 			Instantiate(RandomEnemy, transform.position, transform.rotation);
-			RandomEnemy.tag = "EnemySummoned";
+			for (int i =0; i<_enemyToSpawn.Length; i++)
+			{
+				_enemyToSpawn[i].tag = "EnemySummoned";
+			}
 			yield return new WaitForSeconds(_spawnerCooldown);
 			_currentEnemyCant--;
 		}
@@ -33,7 +38,6 @@ public class EnemySpawnPoint : MonoBehaviour
 		else
 		{
 			StartCoroutine(CO_SpawnEnemies());
-
 		}
 	}
 

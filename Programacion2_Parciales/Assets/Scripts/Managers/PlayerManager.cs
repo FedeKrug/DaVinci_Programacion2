@@ -57,8 +57,24 @@ namespace Game.Managers
 			EventManager.instance.updateHealthUIEvent.Invoke(_maxPlayerHealth, playerHealth.value);
 			Debug.Log("Player damaged");
 			_playerRef.animator.Play("Hit");
+			CheckDeath();
 		}
 
-
+		private void CheckDeath()
+		{
+			if (playerHealth.value <=0)
+			{
+				Die();
+			}
+		}
+		public void Die()
+		{
+			StartCoroutine(CO_PlayerDeath());
+		}
+		private IEnumerator CO_PlayerDeath()
+		{
+			yield return null;
+			Debug.Log($"Player is dead... TODO: Crear la corroutine para la muerte del player");
+		}
 	}
 }
