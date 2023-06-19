@@ -12,7 +12,7 @@ public class CameraArm : MonoBehaviour
     [SerializeField] private float _camDistance = 6f;
     [SerializeField] private float _hitOffset= .2f; 
     [SerializeField] private float _minClamp, _maxClamp;
-    [SerializeField] private FloatSO _mouseSensitivity;
+    [SerializeField] private FloatSO _mouseSensibility;
     [SerializeField] private LayerMask _camViewLayer;
     [Header("Player")]
     [SerializeField] private Transform _target;
@@ -40,32 +40,36 @@ public class CameraArm : MonoBehaviour
     }
 
     private void LateUpdate()
-    {
-        transform.position = _target.position;
-        _mouseX += Input.GetAxisRaw("Mouse X") * _mouseSensitivity.value * Time.deltaTime;
-        _mouseY += Input.GetAxisRaw("Mouse Y") * _mouseSensitivity.value * Time.deltaTime;
-        if (_mouseX <=-360 || _mouseX>=360)
-        {
-            _mouseX -= 360 * Mathf.Sign(_mouseX);
-        }
+	{
+		//FollowPlayer();
+	}
 
-        _mouseY = Mathf.Clamp(_mouseY, _minClamp, _maxClamp);
+	public void FollowPlayer()
+	{
+		transform.position = _target.position;
+		_mouseX += Input.GetAxisRaw("Mouse X") * _mouseSensibility.value * Time.deltaTime;
+		_mouseY += Input.GetAxisRaw("Mouse Y") * _mouseSensibility.value * Time.deltaTime;
+		if (_mouseX <= -360 || _mouseX >= 360)
+		{
+			_mouseX -= 360 * Mathf.Sign(_mouseX);
+		}
 
-        transform.rotation = Quaternion.Euler(_cameraOrientation* _mouseY, _mouseX, 0f);
+		_mouseY = Mathf.Clamp(_mouseY, _minClamp, _maxClamp);
 
-        _dir = -transform.forward;
+		transform.rotation = Quaternion.Euler(_cameraOrientation * _mouseY, _mouseX, 0f);
 
-        if (_isCamBlocked)
-        {
-            _camPos = _hit.point - _dir * _hitOffset;
-        }
-        else
-        {
-            _camPos = transform.position + _dir * _camDistance;
-        }
+		_dir = -transform.forward;
 
-        _myCam.transform.position = _camPos;
-        _myCam.transform.LookAt(transform.position);
-    }
+		if (_isCamBlocked)
+		{
+			_camPos = _hit.point - _dir * _hitOffset;
+		}
+		else
+		{
+			_camPos = transform.position + _dir * _camDistance;
+		}
 
+		_myCam.transform.position = _camPos;
+		_myCam.transform.LookAt(transform.position);
+	}
 }
