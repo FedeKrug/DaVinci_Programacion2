@@ -21,6 +21,8 @@ public class Potion : MonoBehaviour
 		_potionParticleSystem.SetActive(true);
 		EventManager.instance.playerHealthIncreased.Invoke(_healthPoints);
 		yield return new WaitForSeconds(_particleTime);
+		GetComponentInChildren<MeshRenderer>().enabled = false;
+		yield return new WaitForSeconds(_particleTime);
 		gameObject.SetActive(false);
 	}
 }

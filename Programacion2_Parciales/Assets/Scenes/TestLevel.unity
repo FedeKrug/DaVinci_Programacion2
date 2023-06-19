@@ -3495,24 +3495,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2016819225 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6183549854670623539, guid: c4e4eb4e886b2484794ca2747ec18a40, type: 3}
-  m_PrefabInstance: {fileID: 6081204342430140184}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &2016819228
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016819225}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2079118821
 GameObject:
   m_ObjectHideFlags: 0
@@ -3633,24 +3615,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098025090}
   m_CullTransparentMesh: 1
---- !u!1 &919132147747823547 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6719368890921231326, guid: 0e91ba1acc6ef9d4f95800d14dd38e6e, type: 3}
-  m_PrefabInstance: {fileID: 5908326570204675173}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &919132147747823549
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147747823547}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4346261268790897102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3849,6 +3813,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4907673816379661038, guid: c4e4eb4e886b2484794ca2747ec18a40, type: 3}
+      propertyPath: _particleTime
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6183549854670623539, guid: c4e4eb4e886b2484794ca2747ec18a40, type: 3}
       propertyPath: m_Name
       value: LittlePotion
