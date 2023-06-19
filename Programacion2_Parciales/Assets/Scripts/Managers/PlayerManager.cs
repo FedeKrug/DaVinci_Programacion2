@@ -57,8 +57,20 @@ namespace Game.Managers
 			EventManager.instance.updateHealthUIEvent.Invoke(_maxPlayerHealth, playerHealth.value);
 			Debug.Log("Player damaged");
 			_playerRef.animator.Play("Hit");
+			CheckDeath();
 		}
 
+		private void CheckDeath()
+		{
+			if (playerHealth.value <=0)
+			{
+				Die();
+			}
+		}
+		public void Die()
+		{
+
+		}
 
 	}
 }

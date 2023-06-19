@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.Cameras;
 using Game.Interfaces;
 
 [RequireComponent(typeof(Rigidbody))]

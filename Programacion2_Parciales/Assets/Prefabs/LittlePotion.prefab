@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPoints: 150
   _potionParticleSystem: {fileID: 8054105237816052624}
-  _particleTime: 0
+  _particleTime: 0.8
 --- !u!135 &2016819228
 SphereCollider:
   m_ObjectHideFlags: 0
