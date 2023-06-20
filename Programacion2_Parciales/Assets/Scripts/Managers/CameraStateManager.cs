@@ -2,10 +2,10 @@
 
 namespace Game.Managers
 {
-	public class StateManager : MonoBehaviour
+	public class CameraStateManager : MonoBehaviour
 	{
 		#region Singleton
-		public static StateManager instance;
+		public static CameraStateManager instance;
 		private void Awake()
 		{
 			if (instance == null)
@@ -21,7 +21,7 @@ namespace Game.Managers
 
 		[SerializeField] private State currentState;
 
-		private void Update()
+		private void LateUpdate()
 		{
 			RunStateMachine();
 		}

@@ -12,7 +12,6 @@ public class FocusedCameraState : State
 		if (!_normalCameraState.cameraFocus)
 		{
 			return _normalCameraState;
-
 		}
 		else
 		{

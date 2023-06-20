@@ -23,6 +23,7 @@ public class NormalCameraState : State
 		}
 		else
 		{
+			GetComponent<CameraArm>().FollowPlayer();
 			Debug.Log("Normal Camera");
 			return this;
 

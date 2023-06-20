@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Programacion2_Parciales/Assets/Scripts/Audio/AudioRequester.cs.meta
 guid: 6e4dd12d18a20fe4abe1f4673cf61a69
+========
+guid: 2ac910fa0c0081e4ca46a204ae87e712
+>>>>>>>> CommandantMutant:Programacion2_Parciales/Assets/Scripts/Camera/StateMachine/FocusedCameraState.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
