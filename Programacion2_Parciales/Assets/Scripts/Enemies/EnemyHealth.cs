@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
 		_enemyNavmesh.enabled = false;
 		_anim.Play("Death");
 		yield return new WaitForSeconds(4);
+		StopAllCoroutines();
 		_enemyRef.gameObject.SetActive(false);
 	}
 

@@ -4914,6 +4914,7 @@ MonoBehaviour:
   _explosionForce: 100
   _upForce: 0
   _particleEffect: {fileID: 1321493824333699674}
+  _particleTime: 0.3
   _speed: 3
 --- !u!135 &3580724324782810593
 SphereCollider:
