@@ -44,11 +44,6 @@ namespace Game.Enemies
             transform.forward = lookPos;
         }
 
-        public void spawnProjectile()
-        {
-
-        }
-
 		public override void Death()
 		{
             Debug.Log($"EnemyRanged is dead");

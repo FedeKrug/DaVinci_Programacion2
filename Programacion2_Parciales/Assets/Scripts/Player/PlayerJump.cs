@@ -19,7 +19,7 @@ public class PlayerJump : MonoBehaviour
 	[SerializeField] private Animator _anim;
 	private void Update()
 	{
-		if (Input.GetKeyDown(_jumpKey))
+		if (Input.GetKeyDown(_jumpKey) && _onFloor)
 		{
 			Jump();
 		}

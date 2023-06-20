@@ -13,6 +13,7 @@ namespace Game.Managers
 
 		public FloatSO playerHealth;
 		public Transform playerTransform;
+		[SerializeField] private PlayerMovement _playerRef;
 		[SerializeField] private float _maxPlayerHealth;
 		#region Singleton
 		private void Awake()
@@ -43,11 +44,7 @@ namespace Game.Managers
 		{
 			playerHealth.value = _maxPlayerHealth;
 		}
-		//private void Update()
-		//{
-		//	EventManager.instance.updateHealthUIEvent.Invoke(_maxPlayerHealth, playerHealth.value);
-
-		//}
+		
 		public void IncreaseHealthHandler(float healthBoost)
 		{
 			playerHealth.value += healthBoost;
@@ -59,9 +56,25 @@ namespace Game.Managers
 			playerHealth.value -= damage;
 			EventManager.instance.updateHealthUIEvent.Invoke(_maxPlayerHealth, playerHealth.value);
 			Debug.Log("Player damaged");
-
+			_playerRef.animator.Play("Hit");
+			CheckDeath();
 		}
 
-
+		private void CheckDeath()
+		{
+			if (playerHealth.value <=0)
+			{
+				Die();
+			}
+		}
+		public void Die()
+		{
+			StartCoroutine(CO_PlayerDeath());
+		}
+		private IEnumerator CO_PlayerDeath()
+		{
+			yield return null;
+			Debug.Log($"Player is dead... TODO: Crear la corroutine para la muerte del player");
+		}
 	}
 }

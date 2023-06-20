@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Programacion2_Parciales/Assets/Scripts/Camera/StateMachine/FocusedCameraState.cs.meta
+guid: 2ac910fa0c0081e4ca46a204ae87e712
+========
+guid: 367508b3afb5dc247b391a6369efd1dd
+>>>>>>>> CommandantMutant:Programacion2_Parciales/Assets/Scripts/Camera/StateMachine/NormalCameraState.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

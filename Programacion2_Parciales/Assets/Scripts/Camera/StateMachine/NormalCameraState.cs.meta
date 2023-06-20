@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Programacion2_Parciales/Assets/Scripts/Camera/StateMachine/NormalCameraState.cs.meta
+guid: 367508b3afb5dc247b391a6369efd1dd
+========
+guid: f3be38f6b76a97f4385414511893ee6f
+>>>>>>>> CommandantMutant:Programacion2_Parciales/Assets/Scripts/Enemies/StateMachines/CommandantMutant/ChaseState.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

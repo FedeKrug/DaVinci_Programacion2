@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.Cameras;
 using Game.Interfaces;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -11,11 +10,8 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	[SerializeField] private float _movementSpeed = 5f;
 	public bool canMove;
 
-	[Header("Inputs")]
-	[SerializeField] private int _atkButttonindex = 0;
-
 	[Header("Animator")]
-	Animator _animator;
+	public Animator animator;
 	[SerializeField] private string _xAxisName = "xAxis";
 	[SerializeField] private string _zAxisName = "zAxis";
 
@@ -35,7 +31,7 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	{
 		_rb = GetComponent<Rigidbody>();
 		_rb.constraints = RigidbodyConstraints.FreezeRotation;
-		if (_animator == null) _animator = GetComponentInChildren<Animator>();
+		if (animator == null) animator = GetComponentInChildren<Animator>();
 	}
 
 	private void Update()
@@ -43,8 +39,8 @@ public class PlayerMovement : MonoBehaviour, Explotable
 		xAxis = Input.GetAxis("Horizontal");
 		zAxis = Input.GetAxis("Vertical");
 
-		_animator.SetFloat(_xAxisName, xAxis);
-		_animator.SetFloat(_zAxisName, zAxis);
+		animator.SetFloat(_xAxisName, xAxis);
+		animator.SetFloat(_zAxisName, zAxis);
 	}
 
 	private void FixedUpdate()

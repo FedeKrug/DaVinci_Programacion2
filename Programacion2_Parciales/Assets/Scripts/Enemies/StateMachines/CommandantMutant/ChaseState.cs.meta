@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Programacion2_Parciales/Assets/Scripts/Enemies/StateMachines/CommandantMutant/ChaseState.cs.meta
+guid: f3be38f6b76a97f4385414511893ee6f
+========
+guid: 6e4dd12d18a20fe4abe1f4673cf61a69
+>>>>>>>> CommandantMutant:Programacion2_Parciales/Assets/Scripts/Audio/AudioRequester.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

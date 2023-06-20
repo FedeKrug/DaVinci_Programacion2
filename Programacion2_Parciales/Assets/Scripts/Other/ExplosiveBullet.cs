@@ -10,20 +10,32 @@ using UnityEngine;
 public class ExplosiveBullet : Explosive
 {
 	private Rigidbody _rb;
+	[SerializeField] private float _speed = 5;
+	
 
-	private void Awake()
+
+	public void InizializeBullet(Transform target, float lifetime)
 	{
 		_rb = GetComponent<Rigidbody>();
-	}
-	//public override void UseBehaviour()
-	//{
-	//	Explode();
-	//}
+		StartCoroutine(CO_BulletBehaviour(target,lifetime));
 
-	protected override void MakeDamageToPlayer()
-	{
-		EventManager.instance.playerDamaged.Invoke(damage);
 	}
+
+	private IEnumerator CO_BulletBehaviour(Transform target, float lifetime)
+	{
+		Vector3 dir = Vector3.zero;
+		float tick = 0f;
+		while (tick <=1)
+		{
+			dir = (target.position - transform.position).normalized;
+			_rb.MovePosition(transform.position += dir * _speed * Time.deltaTime);
+			tick += Time.deltaTime/ lifetime;
+			yield return null;
+		}
+		UseBehaviour();
+		
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Floor"))
