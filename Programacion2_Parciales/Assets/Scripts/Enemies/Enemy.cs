@@ -13,7 +13,7 @@ namespace Game.Enemies
 		[SerializeField] protected float damage;
 		[SerializeField] protected float _attkRange = 5f;
 		[SerializeField] protected Transform _attckSpawnPoint;
-		
+
 		public bool isAlive;
 		[Header("Animator")]
 		[SerializeField] protected Animator _anim;
@@ -21,7 +21,7 @@ namespace Game.Enemies
 		[Header("NavMesh")]
 		[SerializeField] protected NavMeshAgent _agent;
 		[SerializeField] protected float _speed = 5f;
-		[SerializeField] protected float _rangeToChase = 5f;
+		[SerializeField] private float _rangeToChase = 5f;
 		[SerializeField] protected float _rangeToAttack = 2f;
 
 
@@ -29,8 +29,13 @@ namespace Game.Enemies
 		protected float _distance;
 		public bool canMove = true;
 
+		public float RangeToChase
+		{
+			get => _rangeToChase;
+			set => _rangeToChase = value;
+		}
 
-		protected void Start()
+		protected virtual void Start()
 		{
 			_agent = GetComponent<NavMeshAgent>();
 			_target = PlayerManager.instance.playerTransform; //una referencia desde el playerManager para que incluso los prefabs sepan donde esta el player.
@@ -39,21 +44,21 @@ namespace Game.Enemies
 		private void Update()
 		{
 			_distance = (transform.position - _target.position).sqrMagnitude;
-			
-				if (moveCondition())
+
+			if (moveCondition())
+			{
+				Move();
+				if (attackCondition())
 				{
-					Move();
-					if (attackCondition())
-					{
-						Attack();
-					}
+					Attack();
 				}
-				else if (!moveCondition())
-				{
-					_anim.SetBool("InChaseRange", false);
-					_agent.velocity = Vector3.zero;
-				}
-			
+			}
+			else if (!moveCondition())
+			{
+				_anim.SetBool("InChaseRange", false);
+				_agent.velocity = Vector3.zero;
+			}
+
 		}
 
 

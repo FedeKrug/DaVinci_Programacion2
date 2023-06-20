@@ -371,7 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3849b01de17c84987e5022a996f262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chaseState: {fileID: 0}
+  _chaseState: {fileID: 603750588}
+  _distantAttackState: {fileID: 1941926398}
+  _enemyRef: {fileID: 6674163707920958767}
 --- !u!1 &293307273
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,11 +844,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3be38f6b76a97f4385414511893ee6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inMeleeAttackRange: 0
-  inDistantAttackRange: 0
-  _idleState: {fileID: 0}
-  _meleeAttackState: {fileID: 0}
-  _distantAttackState: {fileID: 0}
+  _enemyRef: {fileID: 6674163707920958767}
+  _idleState: {fileID: 2039531982}
+  _meleeAttackState: {fileID: 292659350}
+  _distantAttackState: {fileID: 1941926398}
 --- !u!1 &607171695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8849552925718847433, guid: 58e5fdb45b8693741893263c9630519e, type: 3}
@@ -2427,7 +2428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0113014f50f97f246ad0047e2988ec86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
+  currentState: {fileID: 2039531982}
 --- !u!1001 &1538147191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3540,8 +3541,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1899093e033f8841828368eccae4249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chaseState: {fileID: 0}
-  _meleeAttackState: {fileID: 0}
+  _enemyRef: {fileID: 6674163707920958767}
+  _chaseState: {fileID: 603750588}
+  _meleeAttackState: {fileID: 292659350}
+  _enemyBulletSpawner: {fileID: 6674163707920958764}
 --- !u!1 &2039531980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3586,7 +3589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df690ca75f2c6f4f89383c8494fabd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inRangeOfView: 0
+  _enemyRef: {fileID: 6674163707920958767}
   _chaseState: {fileID: 603750588}
 --- !u!1 &2079118821
 GameObject:
@@ -5141,13 +5144,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6674163707920958753}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ff10d0b568389445ba4076eef93051d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletLifetime: 1.5
-  _cooldown: 15
+  _cooldown: 3
   _bullet: {fileID: 3580724324782810595, guid: 169d00572c51a00418f58f45f260b53f, type: 3}
   _projectileSpawners:
   - {fileID: 6674163706121713716}
@@ -5210,12 +5213,14 @@ MonoBehaviour:
   _anim: {fileID: 6674163707819298289}
   _agent: {fileID: 6674163707920958765}
   _speed: 5
-  _rangeToChase: 10
+  _rangeToChase: 5
   _rangeToAttack: 5
   canMove: 1
+  _health: {fileID: 7542222713138660426}
+  distantAttackRange: 15
+  meleeAttackRange: 3
   battleAvailable: 0
-  _enemyCant: 0
-  _bulletSpawner: {fileID: 6674163707920958764}
+  enemyCant: 3
 --- !u!1 &6683326002070176525
 GameObject:
   m_ObjectHideFlags: 0
