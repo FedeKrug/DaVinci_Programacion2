@@ -88,6 +88,7 @@ MonoBehaviour:
   _speed: 5
   _rangeToChase: 10
   _rangeToAttack: 9
+  _source: {fileID: 0}
   canMove: 1
   _timer: 5
   _bomberProjectile: {fileID: 1381211814719472731, guid: 2284d8c0001ef0d4881042c74ca8f16a, type: 3}
@@ -878,3 +879,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bba54111c1c7e741889e1e480c39178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clipChase: {fileID: 0}
+  _clipAttack: {fileID: 0}

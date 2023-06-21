@@ -77,6 +77,7 @@ MonoBehaviour:
   _speed: 5
   _rangeToChase: 5
   _rangeToAttack: 2
+  _source: {fileID: 0}
   canMove: 1
 --- !u!1001 &8903910561787570411
 PrefabInstance:
@@ -816,6 +817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bba54111c1c7e741889e1e480c39178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clipChase: {fileID: 0}
+  _clipAttack: {fileID: 0}
 --- !u!4 &8942937225483456256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ec7b45b189300041bc6998206819cbd, type: 3}
