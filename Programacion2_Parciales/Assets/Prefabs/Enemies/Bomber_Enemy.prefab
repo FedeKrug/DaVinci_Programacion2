@@ -91,7 +91,7 @@ MonoBehaviour:
   _source: {fileID: 0}
   canMove: 1
   _timer: 5
-  _bomberProjectile: {fileID: 1381211814719472731, guid: 2284d8c0001ef0d4881042c74ca8f16a, type: 3}
+  _bomberProjectile: {fileID: 7186968259653110308, guid: f5ce78d1206c6724998724d25cb0fb5c, type: 3}
 --- !u!114 &3964356724969485771
 MonoBehaviour:
   m_ObjectHideFlags: 0
