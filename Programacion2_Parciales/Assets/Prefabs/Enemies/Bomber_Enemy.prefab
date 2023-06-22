@@ -104,11 +104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb83643e5e5e0ee49a40410bf374c9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 35
+  _maxHealth: 0
   _enemyMaterial: {fileID: 2100000, guid: dbbe912d5436fee4aa942331e3629724, type: 2}
   _anim: {fileID: 3964356724017117445}
   _enemyRef: {fileID: 3964356724969485769}
   _enemyNavmesh: {fileID: 3964356724969485768}
+  _enemyHealthBar: {fileID: 0}
 --- !u!195 &3964356724969485768
 NavMeshAgent:
   m_ObjectHideFlags: 0

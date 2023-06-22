@@ -4,12 +4,24 @@ using UnityEngine.AI;
 using Game.Enemies;
 public class EnemyHealth : MonoBehaviour
 {
-	[SerializeField] private float _health;
+	[Header("Stats")]
+	private float _health;
+	[SerializeField] private float _maxHealth;
+
+	[Header("Aesthetics")]
 	[SerializeField] private Material _enemyMaterial;
 	[SerializeField] private Animator _anim;
+
+	[Header("References")]
 	[SerializeField] private Enemy _enemyRef;
 	[SerializeField] private NavMeshAgent _enemyNavmesh;
-	
+	[SerializeField, Tooltip("World Canvas enemy Health Bar")] private WorldCanvasEnemyHealthBar _enemyHealthBar;
+
+	private void Start()
+	{
+		_health = _maxHealth;
+	}
+
 	public IEnumerator Die()
 	{
 		_enemyRef.isAlive = false;
@@ -26,7 +38,10 @@ public class EnemyHealth : MonoBehaviour
 		_health -= damageAmount;
 		StartCoroutine(CO_TintRed());
 		CheckDeath();
-		
+		if (_enemyHealthBar != null)
+		{
+			_enemyHealthBar.UpdateEnemyHealthBar(_health, _maxHealth);
+		}
 	}
 	private void CheckDeath()
 	{
@@ -38,7 +53,7 @@ public class EnemyHealth : MonoBehaviour
 	}
 	IEnumerator CO_TintRed()
 	{
-		_enemyMaterial.color= Color.red;
+		_enemyMaterial.color = Color.red;
 		yield return new WaitForSeconds(0.2f);
 		_enemyMaterial.color = Color.white;
 	}
