@@ -985,8 +985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bba54111c1c7e741889e1e480c39178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clipChase: {fileID: 0}
-  _clipAttack: {fileID: 0}
 --- !u!4 &4216944073832811246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: df14119487a12ae499e59134bf888d5e, type: 3}

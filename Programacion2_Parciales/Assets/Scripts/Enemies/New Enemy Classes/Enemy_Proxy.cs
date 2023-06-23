@@ -7,8 +7,6 @@ namespace Game.Enemies
     public class Enemy_Proxy : MonoBehaviour
     {
         Enemy _enemy;
-        [SerializeField] AudioClip _clipChase;
-        [SerializeField] AudioClip _clipAttack;
 
         void Start()
         {
@@ -35,9 +33,9 @@ namespace Game.Enemies
             _enemy.destroyOnAnimation();
         }
 
-        private void playAudio()
+        private void playAudio(AudioClip clip)
         {
-            _enemy.PlayAudioOnAnimation(_clipChase);
+            _enemy.PlayAudioOnAnimation(clip);
         }
     }
 }
