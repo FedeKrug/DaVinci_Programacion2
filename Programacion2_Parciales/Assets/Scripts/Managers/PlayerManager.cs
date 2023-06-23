@@ -15,6 +15,7 @@ namespace Game.Managers
 		public Transform playerTransform;
 		[SerializeField] private PlayerMovement _playerRef;
 		[SerializeField] private float _maxPlayerHealth;
+		[SerializeField] private AudioClip[] _playerClips;
 		#region Singleton
 		private void Awake()
 		{
@@ -75,6 +76,18 @@ namespace Game.Managers
 		{
 			yield return null;
 			Debug.Log($"Player is dead... TODO: Crear la corroutine para la muerte del player");
+		}
+
+		public void PlaySoundOnAnimation(int soundIndex)
+		{
+			AudioSource source = _playerRef.GetComponent<AudioSource>();
+			AudioClip clip = _playerClips[soundIndex];
+			if (source.enabled == false) source.enabled = true;
+			if (source.clip == clip) return;
+			source.Stop();
+			source.clip = clip;
+			source.Play();
+			
 		}
 	}
 }

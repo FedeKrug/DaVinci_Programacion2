@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Game.Enemies;
+using Game.Managers;
 public class PlayerAttack : MonoBehaviour
 {
 	private Ray _attackRay;
@@ -17,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
 			if (enemyCatched != null)
 			{
 				enemyCatched.TakeDamage(damage);
+				PlayerManager.instance.PlaySoundOnAnimation(4); //stabbingEnemies Sound
 			}
 		}
 

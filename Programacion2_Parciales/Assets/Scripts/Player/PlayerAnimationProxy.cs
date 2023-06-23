@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using Game.Managers;
 using UnityEngine;
 
 public class PlayerAnimationProxy : MonoBehaviour
@@ -26,5 +26,10 @@ public class PlayerAnimationProxy : MonoBehaviour
 	public void OnEndJump()
 	{
 		_playerJumpRef.LandOnFloor();
+	}
+
+	public void PlaySound(int audioClipIndex)
+	{
+		PlayerManager.instance.PlaySoundOnAnimation(audioClipIndex);
 	}
 }
