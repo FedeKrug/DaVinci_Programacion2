@@ -20,6 +20,11 @@ public class PlayerAttack : MonoBehaviour
 				enemyCatched.TakeDamage(damage);
 				PlayerManager.instance.PlaySoundOnAnimation(4); //stabbingEnemies Sound
 			}
+			else
+			{
+				PlayerManager.instance.PlaySoundOnAnimation(6);
+
+			}
 		}
 
 
