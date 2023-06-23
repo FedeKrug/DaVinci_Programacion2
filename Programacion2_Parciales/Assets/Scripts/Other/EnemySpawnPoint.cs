@@ -8,8 +8,7 @@ public class EnemySpawnPoint : MonoBehaviour
 	[SerializeField] private int _maxEnemyCant;
 	[SerializeField] private Enemy[] _enemyToSpawn;
 	[SerializeField] private float _spawnerCooldown;
-	[SerializeField] private float _explosionForce;
-	[SerializeField] private float _explosionRadius;
+	
 	private float _currentEnemyCant;
 
 	private void Start()

@@ -29,7 +29,7 @@ namespace Game.Managers
 		[SerializeField] private Slider[] _volumeSliders;
 		[SerializeField] private AsyncSceneLoader _asynSceneLoader;
 
-		
+
 		private void Start()
 		{
 			if (_menuCanvas.Length == 0)
@@ -53,7 +53,11 @@ namespace Game.Managers
 		}
 		public void EnableMenu(int menuToShow)
 		{
-			if (_asynSceneLoader.IsAsyncLoading) return;
+			if (_asynSceneLoader != null)
+			{
+				if (_asynSceneLoader.IsAsyncLoading) return;
+
+			}
 			for (int i = 0; i < _menuCanvas.Length; i++)
 			{
 				if (i == menuToShow)
@@ -73,7 +77,7 @@ namespace Game.Managers
 
 		public void TurnOffMenus()
 		{
-			for (int i =0; i < _menuCanvas.Length; i++)
+			for (int i = 0; i < _menuCanvas.Length; i++)
 			{
 				_menuCanvas[i].enabled = false;
 			}

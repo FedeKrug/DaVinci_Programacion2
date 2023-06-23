@@ -39,7 +39,7 @@ namespace Game.Managers
 		private void Start()
 		{
 			_loadBar.fillAmount = 0;
-			_loadBar.enabled = false;
+			_loadBarParent.enabled = false;
 		}
 
 
@@ -50,10 +50,10 @@ namespace Game.Managers
 		}
 		private IEnumerator LoadAsync(string sceneToLoad)
 		{
+			_loadBarParent.enabled = true;
 			_isAsyncLoading = true;
 			AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneToLoad);
 			asyncLoad.allowSceneActivation = false;
-			_loadBarParent.enabled = true;
 			//_loadBar.color = _loadProgressColor;
 			while (asyncLoad.progress <0.9f)
 			{

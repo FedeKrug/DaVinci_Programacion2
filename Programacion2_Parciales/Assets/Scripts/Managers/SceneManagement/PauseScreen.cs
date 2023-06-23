@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using Game.Managers;
+using UnityEngine.UI;
 
 public class PauseScreen : MonoBehaviour
 {
 	public static PauseScreen instance;
-	[SerializeField] private GameObject _pauseScreen;
+	[SerializeField] private Canvas _pauseScreen;
 
 	#region Singleton
 	private void Awake()
@@ -24,7 +25,7 @@ public class PauseScreen : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetButtonDown("Pause") && _pauseScreen != null)
+		if (Input.GetButtonDown("Pause")/* && _pauseScreen != null*/)
 		{
 			PauseGame();
 		}
@@ -36,7 +37,7 @@ public class PauseScreen : MonoBehaviour
 		{
 			CombatManager.instance.inputReceived = false;
 			Time.timeScale = 0;
-			_pauseScreen.SetActive(true);
+			_pauseScreen.enabled = true;
 			GameManager.instance.FreeCursor();
 			GameManager.instance.ShowCursor();
 		}
@@ -50,7 +51,7 @@ public class PauseScreen : MonoBehaviour
 	{
 		CombatManager.instance.inputReceived = false;
 		Time.timeScale = 1;
-		_pauseScreen.SetActive(false);
+		_pauseScreen.enabled = false;
 		GameManager.instance.BlockCursor();
 		GameManager.instance.HideCursor();
 	}
