@@ -24,6 +24,10 @@ namespace Game.Enemies
 		[SerializeField] private float _rangeToChase = 5f;
 		[SerializeField] protected float _rangeToAttack = 2f;
 
+		[Header("Audio")]
+		[SerializeField] AudioSource _source;
+
+
 
 		protected Transform _target;
 		protected float _distance;
@@ -40,6 +44,7 @@ namespace Game.Enemies
 			_agent = GetComponent<NavMeshAgent>();
 			_target = PlayerManager.instance.playerTransform; //una referencia desde el playerManager para que incluso los prefabs sepan donde esta el player.
 			_agent.speed = _speed;
+			_source.enabled = false;
 		}
 		private void Update()
 		{
@@ -57,6 +62,7 @@ namespace Game.Enemies
 			{
 				_anim.SetBool("InChaseRange", false);
 				_agent.velocity = Vector3.zero;
+				_source.enabled = false;
 			}
 
 		}
@@ -109,6 +115,15 @@ namespace Game.Enemies
 		public void destroyOnAnimation()
 		{
 			Destroy(this.gameObject);
+		}
+
+		public void PlayAudioOnAnimation(AudioClip clip)
+		{
+			if(_source.enabled == false) _source.enabled = true;
+			if (_source.clip == clip) return;
+			_source.Stop();
+			_source.clip = clip;
+			_source.Play();
 		}
 
 

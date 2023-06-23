@@ -88,9 +88,10 @@ MonoBehaviour:
   _speed: 5
   _rangeToChase: 10
   _rangeToAttack: 9
+  _source: {fileID: 0}
   canMove: 1
   _timer: 5
-  _bomberProjectile: {fileID: 1381211814719472731, guid: 2284d8c0001ef0d4881042c74ca8f16a, type: 3}
+  _bomberProjectile: {fileID: 7186968259653110308, guid: f5ce78d1206c6724998724d25cb0fb5c, type: 3}
 --- !u!114 &3964356724969485771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,11 +104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb83643e5e5e0ee49a40410bf374c9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 35
+  _maxHealth: 0
   _enemyMaterial: {fileID: 2100000, guid: dbbe912d5436fee4aa942331e3629724, type: 2}
   _anim: {fileID: 3964356724017117445}
   _enemyRef: {fileID: 3964356724969485769}
   _enemyNavmesh: {fileID: 3964356724969485768}
+  _enemyHealthBar: {fileID: 0}
 --- !u!195 &3964356724969485768
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -878,3 +880,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bba54111c1c7e741889e1e480c39178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clipChase: {fileID: 0}
+  _clipAttack: {fileID: 0}

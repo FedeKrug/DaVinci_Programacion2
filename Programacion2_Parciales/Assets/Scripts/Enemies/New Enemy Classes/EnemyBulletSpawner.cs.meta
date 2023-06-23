@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Programacion2_Parciales/Assets/Scripts/Enemies/New Enemy Classes/EnemyBulletSpawner.cs.meta
 guid: 2ff10d0b568389445ba4076eef93051d
+========
+guid: 8df690ca75f2c6f4f89383c8494fabd9
+>>>>>>>> Develop:Programacion2_Parciales/Assets/Scripts/Enemies/StateMachines/CommandantMutant/IdleState.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
