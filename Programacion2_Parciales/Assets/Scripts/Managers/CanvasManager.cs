@@ -15,10 +15,10 @@ namespace Game.Managers
 			{
 				instance = this;
 			}
-			else
-			{
-				Destroy(gameObject);
-			}
+			//else
+			//{
+				//Destroy(gameObject);
+			//}
 		}
 		#endregion
 		[Header("Screens")]

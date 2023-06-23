@@ -24,10 +24,10 @@ namespace Game.Managers
 		[SerializeField] private CanvasManager _canvasRef;
 		public void ChangeScene(string SceneToChange)
 		{
-			if (_canvasRef)
-			{
-				Destroy(_canvasRef.gameObject);
-			}
+			//if (_canvasRef)
+			//{
+			//	Destroy(_canvasRef.gameObject);
+			//}
 			SceneManager.LoadScene(SceneToChange);
 		}
 
