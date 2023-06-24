@@ -7,13 +7,13 @@ namespace Game.Managers
 	{
 		#region Singleton
 		public static SceneLoader instance;
-		
+
 		private void Awake()
 		{
 			if (instance == null)
 			{
 				instance = this;
-				
+
 			}
 			else
 			{
@@ -24,14 +24,14 @@ namespace Game.Managers
 		[SerializeField] private CanvasManager _canvasRef;
 		public void ChangeScene(string SceneToChange)
 		{
-			//if (_canvasRef)
-			//{
-			//	Destroy(_canvasRef.gameObject);
-			//}
+			if (_canvasRef != null)
+			{
+				Destroy(_canvasRef.gameObject);
+			}
 			SceneManager.LoadScene(SceneToChange);
 		}
 
-		
+
 		public void ReloadScene()
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

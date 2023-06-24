@@ -10,5 +10,4 @@ namespace Game.SO
 	{
 		public float value;
 	}
-
 }
