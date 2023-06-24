@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour, Explotable
 {
 	[Header("Values")]
 	[SerializeField] private float _movementSpeed = 5f;
+	[SerializeField, Tooltip("No borrar  IMPORTANTE!!!")] private ThirdPersonCameraController _cameraRef; 
 	public bool canMove;
 
 	[Header("Animator")]
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	{
 		if ((xAxis != 0 || zAxis != 0)&& canMove)
 		{
+			_cameraRef.CameraMovement(xAxis,zAxis,_rb);
 			Movement(xAxis, zAxis);
 		}
 	}

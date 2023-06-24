@@ -3735,6 +3735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 4
+  _cameraRef: {fileID: 0}
   canMove: 1
   animator: {fileID: 2306678090293234815}
   _xAxisName: xAxis
@@ -3783,7 +3784,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7475428245558321194, guid: a4a5155f6c544844a844e5d1f0e8feb8, type: 2}
-  m_audioClip: {fileID: 8300000, guid: b0ecb4469b6b7ae4b8e18ac00f96acf8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f6df96af3c6dab94498f14fbb2214267, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

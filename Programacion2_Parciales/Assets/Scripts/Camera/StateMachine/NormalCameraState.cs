@@ -8,6 +8,8 @@ public class NormalCameraState : State
 	public bool cameraFocus;
 	[SerializeField] private KeyCode _focusCameraButton;
 	[SerializeField] private FocusedCameraState _focusedCameraState;
+	[SerializeField] private CameraArm _cameraRef;
+	
 	private void Update()
 	{
 		if (Input.GetKeyDown(_focusCameraButton))
@@ -23,8 +25,7 @@ public class NormalCameraState : State
 		}
 		else
 		{
-			GetComponent<CameraArm>().FollowPlayer();
-			Debug.Log("Normal Camera");
+			_cameraRef.FollowPlayer();
 			return this;
 
 		}

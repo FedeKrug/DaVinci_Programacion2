@@ -35,13 +35,11 @@ namespace Game.Managers
 
 		private void OnTriggerEnter(Collider other)
 		{
-			//if (_isSceneLoaded)
-			//{
-			//	Debug.Log("Scene is already loaded");
-			//	return;
-			//}
-
-			Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+			if (_isSceneLoaded)
+			{
+				Debug.Log("Scene is already loaded");
+				return;
+			}
 
 			if (other.CompareTag("Player"))
 			{
