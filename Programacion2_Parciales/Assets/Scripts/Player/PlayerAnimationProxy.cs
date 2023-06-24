@@ -7,6 +7,7 @@ public class PlayerAnimationProxy : MonoBehaviour
 {
 	[SerializeField] private PlayerAttack _playerAttackRef;
 	[SerializeField] private PlayerJump _playerJumpRef;
+	[SerializeField] private PlayerModifiedJump _playerModifiedJump;
 
 	#region Attack Methods
 	public void OnStartAttack()
@@ -26,8 +27,12 @@ public class PlayerAnimationProxy : MonoBehaviour
 	public void OnEndJump()
 	{
 		_playerJumpRef.LandOnFloor();
+		_playerModifiedJump.LandOnFloor();
 	}
-
+	public void CheckFloor(float distance)
+	{
+		_playerModifiedJump.CheckFloorDistance(distance);
+	}
 	public void PlaySound(int audioClipIndex)
 	{
 		PlayerManager.instance.PlaySoundOnAnimation(audioClipIndex);

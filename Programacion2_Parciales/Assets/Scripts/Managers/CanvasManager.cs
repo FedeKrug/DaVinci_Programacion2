@@ -26,7 +26,7 @@ namespace Game.Managers
 
 		[Header("Sliders")]
 		[SerializeField, Range(0.0001f, 1f)] private float _initMusicVol = 0.0001f;
-		[SerializeField] private Slider[] _volumeSliders;
+		[SerializeField] private Slider[] _sliders;
 		[SerializeField] private AsyncSceneLoader _asynSceneLoader;
 
 
@@ -36,12 +36,12 @@ namespace Game.Managers
 			{
 				_menuCanvas = GetComponentsInChildren<Canvas>();
 			}
-			if (_volumeSliders.Length == 0)
+			if (_sliders.Length == 0)
 			{
-				_volumeSliders = GetComponentsInChildren<Slider>();
+				_sliders = GetComponentsInChildren<Slider>();
 			}
 			AudioManager.instance.SetMasterVolume(_initMusicVol);
-			_volumeSliders[0].value = _initMusicVol;
+			_sliders[0].value = _initMusicVol;
 
 			for (int i = 0; i < _menuCanvas.Length; i++)
 			{
@@ -72,7 +72,7 @@ namespace Game.Managers
 		}
 		public void SetMouseSensibility(FloatSO mouseSens)
 		{
-			mouseSens.value = _volumeSliders[3].value;
+			mouseSens.value = _sliders[3].value;
 		}
 
 		public void TurnOffMenus()

@@ -15,9 +15,6 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	[SerializeField] private string _xAxisName = "xAxis";
 	[SerializeField] private string _zAxisName = "zAxis";
 
-	[Header("Camera")]
-	[SerializeField] private ThirdPersonCameraController _cameraRef;
-
 	private Rigidbody _rb;
 	public float xAxis { get; private set; }
 	public float zAxis { get; private set; }
@@ -47,7 +44,6 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	{
 		if ((xAxis != 0 || zAxis != 0)&& canMove)
 		{
-			_cameraRef.CameraMovement(xAxis,zAxis,_rb);
 			Movement(xAxis, zAxis);
 		}
 	}
