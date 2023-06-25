@@ -26,7 +26,7 @@ public class EnemyCounter : MonoBehaviour
 	private int _enemyCant;
 	private int _enemySummonedCant;
 	[SerializeField] private int _maxEnemyCant, _maxEnemySummonedCant;
-
+	[SerializeField] private Enemy_Commandant _mutant;
 
 	private void Start()
 	{
@@ -47,10 +47,12 @@ public class EnemyCounter : MonoBehaviour
 		if (other.CompareTag("Enemy"))
 		{
 			_enemyCant--;
+			CheckEnemyCant();
 		}
 		if (other.CompareTag("EnemySummoned"))
 		{
 			_enemySummonedCant--;
+			CheckSummonedEnemyCant();
 		}
 	}
 
@@ -62,13 +64,13 @@ public class EnemyCounter : MonoBehaviour
 		}
 
 	}
-
-	public bool CheckSummonedEnemyCant(Enemy_Commandant mutant)
+	[ContextMenu("CheckSummonedEnemyCant")]
+	public bool CheckSummonedEnemyCant()
 	{
 		if (_enemySummonedCant <= 0)
 		{
 			Debug.Log("Call The Boss");
-			mutant.battleAvailable = true;
+			StartCoroutine(_mutant.CO_JumpToTheBattle());
 			return true;
 		}
 		else

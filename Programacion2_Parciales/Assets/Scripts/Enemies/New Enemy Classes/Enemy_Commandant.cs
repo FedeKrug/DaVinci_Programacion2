@@ -31,7 +31,7 @@ namespace Game.Enemies
 		protected override void Attack()
 		{
 			//Manejado por StateMachines
-			Debug.Log("Mutant attacks");
+			//Debug.Log("Mutant attacks");
 		}
 
 		protected override bool attackCondition()
@@ -64,21 +64,25 @@ namespace Game.Enemies
 		}
 		protected override void Move()
 		{
-			StartCoroutine(CO_JumpToTheBattle());
+			
 		}
 
 		protected override bool moveCondition()
 		{
-			return EnemyCounter.instance.CheckSummonedEnemyCant(this);
+			//return EnemyCounter.instance.CheckSummonedEnemyCant(this);
+			return battleAvailable;
 		}
 
-		
+		public void MeleeAttack()
+		{
+			base.Attack();
+		}
 
-		private IEnumerator CO_JumpToTheBattle()
+		public IEnumerator CO_JumpToTheBattle()
 		{
 			//TODO: Feedback de battleAvailable, por ejemplo que el Mutant haga una animacion de salto desde su podio. Hacerlo con una coroutine
 			//yield return null;
-			//battleAvailable = true;
+			battleAvailable = true;
 			yield return new WaitForSeconds(10);
 			base.Move();
 			Debug.Log($"Enemy is moving to player");

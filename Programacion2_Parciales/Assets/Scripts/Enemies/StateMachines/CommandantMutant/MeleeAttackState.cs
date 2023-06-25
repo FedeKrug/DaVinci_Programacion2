@@ -12,7 +12,8 @@ namespace Game.Enemies.Mutant
 		{
 			if (_enemyRef.MeleeAttackCondition())
 			{
-				_enemyRef.GetComponentInChildren<Animator>().SetBool("InAttackRange", true);
+				//_enemyRef.GetComponentInChildren<Animator>().SetBool("InAttackRange", true);
+				_enemyRef.MeleeAttack();
 				Debug.Log("Melee State");
 				return this;
 			}

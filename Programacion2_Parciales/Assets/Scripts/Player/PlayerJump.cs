@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-public class PlayerModifiedJump : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
 	[Header("Values")]
 	[SerializeField] private float _jumpForce;
@@ -17,14 +17,10 @@ public class PlayerModifiedJump : MonoBehaviour
 	[SerializeField] private Animator _anim;
 
 	[Header("Modified Variables")]
-	//[SerializeField] private Ray _raycast;
-	//[SerializeField] private float _rayDistance;
 	[SerializeField] private float _offset;
-
 
 	private void Update()
 	{
-		//CheckFloorDistance(_rayDistance);
 		if (Input.GetKeyDown(_jumpKey) && _onFloor)
 		{
 			Jump();

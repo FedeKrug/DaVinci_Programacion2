@@ -18,7 +18,6 @@ namespace Game.Enemies
 		public float Cooldown
 		{
 			get => _cooldown;
-			set => _cooldown = value;
 		}
 
 		private void Start()
@@ -47,7 +46,7 @@ namespace Game.Enemies
 				_instBullet.InizializeBullet(_target, _bulletLifetime);
 				timerTime = savedTime;
 			}
-			//ShootingWithTimer(savedTime);
+			
 		}
 	}
 }

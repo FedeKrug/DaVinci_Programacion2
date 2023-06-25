@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAnimationProxy : MonoBehaviour
 {
 	[SerializeField] private PlayerAttack _playerAttackRef;
-	[SerializeField] private PlayerModifiedJump _playerModifiedJump;
+	[SerializeField] private PlayerJump _playerModifiedJump;
 
 	#region Attack Methods
 	public void OnStartAttack()

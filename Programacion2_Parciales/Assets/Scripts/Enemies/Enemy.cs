@@ -36,7 +36,11 @@ namespace Game.Enemies
 		public float RangeToChase
 		{
 			get => _rangeToChase;
-			set => _rangeToChase = value;
+
+		}
+		public Transform Target
+		{
+			get => _target;
 		}
 
 		protected virtual void Start()
@@ -60,11 +64,16 @@ namespace Game.Enemies
 			}
 			else if (!moveCondition())
 			{
-				_anim.SetBool("InChaseRange", false);
-				_agent.velocity = Vector3.zero;
-				_source.enabled = false;
+				StopMovement();
 			}
 
+		}
+
+		public void StopMovement()
+		{
+			_anim.SetBool("InChaseRange", false);
+			_agent.velocity = Vector3.zero;
+			_source.enabled = false;
 		}
 
 
@@ -119,7 +128,7 @@ namespace Game.Enemies
 
 		public void PlayAudioOnAnimation(AudioClip clip)
 		{
-			if(_source.enabled == false) _source.enabled = true;
+			if (_source.enabled == false) _source.enabled = true;
 			if (_source.clip == clip) return;
 			_source.Stop();
 			_source.clip = clip;
