@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.AI;
 using Game.Enemies;
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, IDeathByLava
 {
 	[Header("Stats")]
 	private float _health;
@@ -56,6 +56,11 @@ public class EnemyHealth : MonoBehaviour
 		_enemyMaterial.color = Color.red;
 		yield return new WaitForSeconds(0.2f);
 		_enemyMaterial.color = Color.white;
+	}
+
+	void IDeathByLava.Die()
+	{
+		
 	}
 }
 

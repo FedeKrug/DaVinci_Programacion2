@@ -7,22 +7,7 @@ namespace Game.Managers
 {
 	public class AdditiveSceneLoader : MonoBehaviour
 	{
-		//#region Singleton
-		//public static AdditiveSceneLoader instance;
-
-		//private void Awake()
-		//{
-		//	if (instance == null)
-		//	{
-		//		instance = this;
-
-		//	}
-		//	else
-		//	{
-		//		Destroy(gameObject);
-		//	}
-		//}
-		//#endregion
+		
 
 		[Header("Scenes")]
 		[SerializeField] private string _sceneToLoad;
@@ -48,13 +33,13 @@ namespace Game.Managers
 				additiveScene.completed += OpenDoor;
 				_isSceneLoaded = true;
 
-				if (_sceneToUnload != null)
+				if (_sceneToUnload != "")
 				{
 					additiveScene = SceneManager.UnloadSceneAsync(_sceneToUnload);
 				}
 			}
 
-			//	gameObject.SetActive(false);
+			gameObject.SetActive(false);
 		}
 
 

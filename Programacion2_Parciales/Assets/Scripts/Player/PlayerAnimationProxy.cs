@@ -24,6 +24,11 @@ public class PlayerAnimationProxy : MonoBehaviour
 		_playerAttackRef.OnEndAttack();
 	}
 	#endregion
+
+	public void OnFallingDown()
+	{
+		_playerModifiedJump.FallingDownAnimParameter();
+	}
 	public void OnEndJump()
 	{
 		_playerJumpRef.LandOnFloor();

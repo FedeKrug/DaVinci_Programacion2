@@ -7,13 +7,22 @@ public class LavaLake : MonoBehaviour
 {
 	private void OnCollisionEnter(Collision other)
 	{
-		if (other.gameObject.GetComponent<EnemyHealth>())
+		//if (other.gameObject.GetComponent<EnemyHealth>())
+		//{
+		//	other.gameObject.GetComponent<EnemyHealth>().Die();
+		//}
+		//else if (other.gameObject.CompareTag("Player"))
+		//{
+		//	PlayerManager.instance.Die();
+		//}
+		if (other.gameObject.GetComponent<IDeathByLava>() != null)
 		{
-			other.gameObject.GetComponent<EnemyHealth>().Die();
+			other.gameObject.GetComponent<IDeathByLava>().Die();
 		}
-		else if (other.gameObject.CompareTag("Player"))
-		{
-			PlayerManager.instance.Die();
-		}
+
 	}
+}
+public interface IDeathByLava
+{
+	public void Die();
 }

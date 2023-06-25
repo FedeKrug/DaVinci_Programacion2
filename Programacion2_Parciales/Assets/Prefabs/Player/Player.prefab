@@ -3703,7 +3703,6 @@ MonoBehaviour:
   _jumpParameter: Jump
   _fallingDownParameter: FallingDown
   _anim: {fileID: 2306678090293234815}
-  _rayDistance: 3.6
   _offset: 2
 --- !u!114 &2306678089756159838
 MonoBehaviour:
