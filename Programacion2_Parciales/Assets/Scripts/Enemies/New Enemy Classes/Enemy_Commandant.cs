@@ -16,7 +16,7 @@ namespace Game.Enemies
 
 		[Header("Enemies Spawner")]
 		public bool battleAvailable; //un bool para determinar si el boss (commandant) puede saltar a escena a pelear con el player
-		[SerializeField] public int enemyCant = 6;
+		
 
 		protected override void Start()
 		{
@@ -64,7 +64,7 @@ namespace Game.Enemies
 		}
 		protected override void Move()
 		{
-			base.Move();
+			StartCoroutine(CO_JumpToTheBattle());
 		}
 
 		protected override bool moveCondition()
@@ -74,11 +74,14 @@ namespace Game.Enemies
 
 		
 
-		IEnumerator CO_JumpToTheBattle()
+		private IEnumerator CO_JumpToTheBattle()
 		{
 			//TODO: Feedback de battleAvailable, por ejemplo que el Mutant haga una animacion de salto desde su podio. Hacerlo con una coroutine
-			yield return null;
-			battleAvailable = true;
+			//yield return null;
+			//battleAvailable = true;
+			yield return new WaitForSeconds(10);
+			base.Move();
+			Debug.Log($"Enemy is moving to player");
 		}
 	}
 }
