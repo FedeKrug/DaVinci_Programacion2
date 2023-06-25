@@ -52,6 +52,7 @@ namespace Game.Enemies
 		}
 		private void Update()
 		{
+			_target = PlayerManager.instance.playerTransform; //una referencia desde el playerManager para que incluso los prefabs sepan donde esta el player.
 			_distance = (transform.position - _target.position).sqrMagnitude;
 
 			if (moveCondition())
@@ -64,12 +65,12 @@ namespace Game.Enemies
 			}
 			else if (!moveCondition())
 			{
-				StopMovement();
+				StopMoving();
 			}
 
 		}
 
-		public void StopMovement()
+		public void StopMoving()
 		{
 			_anim.SetBool("InChaseRange", false);
 			_agent.velocity = Vector3.zero;

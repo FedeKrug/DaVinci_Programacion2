@@ -16,7 +16,8 @@ namespace Game.Enemies
 
 		[Header("Enemies Spawner")]
 		public bool battleAvailable; //un bool para determinar si el boss (commandant) puede saltar a escena a pelear con el player
-		
+
+		[SerializeField] private AnimationClip _roaringAnimation;
 
 		protected override void Start()
 		{
@@ -77,12 +78,17 @@ namespace Game.Enemies
 		{
 			base.Attack();
 		}
-
+		public override void animationAttack()
+		{
+			base.animationAttack();
+		}
 		public IEnumerator CO_JumpToTheBattle()
 		{
 			//TODO: Feedback de battleAvailable, por ejemplo que el Mutant haga una animacion de salto desde su podio. Hacerlo con una coroutine
 			//yield return null;
+			_anim.Play(_roaringAnimation.name);
 			battleAvailable = true;
+			Debug.Log($"Enemy is Roaring");
 			yield return new WaitForSeconds(10);
 			base.Move();
 			Debug.Log($"Enemy is moving to player");

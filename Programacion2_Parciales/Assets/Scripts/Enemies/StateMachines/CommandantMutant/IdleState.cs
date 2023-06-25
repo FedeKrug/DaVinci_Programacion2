@@ -22,7 +22,7 @@ namespace Game.Enemies.Mutant
 			else
 			{
 				//_enemyRef.battleAvailable = false;
-				_enemyRef.StopMovement();
+				_enemyRef.StopMoving();
 				Debug.Log("IdleState");
 				return this;
 			}
