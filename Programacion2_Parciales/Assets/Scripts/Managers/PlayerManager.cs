@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Game.Managers
 {
-	public class PlayerManager : MonoBehaviour
+	public class PlayerManager : MonoBehaviour, IDeathByLava
 	{
 		public static PlayerManager instance;
 
@@ -68,6 +68,12 @@ namespace Game.Managers
 				Die();
 			}
 		}
+		public void DieByLava()
+		{
+			StartCoroutine(CO_PlayerDeath());
+			Debug.Log("Death by Lava AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		}
+
 		public void Die()
 		{
 			StartCoroutine(CO_PlayerDeath());

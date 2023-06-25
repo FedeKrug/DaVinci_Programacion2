@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4292567228240935852}
   - component: {fileID: 4292567228240935851}
+  - component: {fileID: 292816606}
   m_Layer: 0
   m_Name: AdditiveSceneLoader
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4292567228240935850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 42.54357, y: 26.747972, z: 12.535851}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,4 +47,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: EnvironmentB
   _sceneToUnload: 
-  _doorAnimation: {fileID: 0}
+  _doorAnimation: {fileID: 3944591544770514849, guid: 70c3e263bf01a6a4e9065668f2bc1af2, type: 3}
+  _OpenDoorAnimation: {fileID: 7400000, guid: f969ecc919e1124418f0e199c6f91739, type: 2}
+  _closeDoorAnimation: {fileID: 7400000, guid: 493bcc140d11fe146826f32501c10ea5, type: 2}
+  _isSceneLoaded: 0
+--- !u!65 &292816606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4292567228240935850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.3088375, z: 1}
+  m_Center: {x: 0, y: 0.15441881, z: 0}

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1643720279724805174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0354, y: 1.0224057, z: 1.0354}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1656259320785868526}
@@ -191,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656259320785868521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -218,14 +218,14 @@ MonoBehaviour:
   orientationY: {fileID: 11400000, guid: 8daf7ae9b542fdb4ab13568876d7f5c4, type: 2}
   _invertedX: 1
   _invertedY: 1
-  _camDistance: 6
+  _camDistance: 10
   _hitOffset: 0.2
   _minClamp: -600
   _maxClamp: 600
   _mouseSensibility: {fileID: 11400000, guid: 081c68ce2a9776643a1ea33d1322dc35, type: 2}
   _camViewLayer:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 119
   _target: {fileID: 0}
 --- !u!114 &1656259320785868525
 MonoBehaviour:
@@ -242,6 +242,7 @@ MonoBehaviour:
   cameraFocus: 0
   _focusCameraButton: 113
   _focusedCameraState: {fileID: 1656259320785868524}
+  _cameraRef: {fileID: 1656259320785868527}
 --- !u!114 &1656259320785868524
 MonoBehaviour:
   m_ObjectHideFlags: 0

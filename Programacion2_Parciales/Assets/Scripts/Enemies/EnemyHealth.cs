@@ -58,7 +58,7 @@ public class EnemyHealth : MonoBehaviour, IDeathByLava
 		_enemyMaterial.color = Color.white;
 	}
 
-	void IDeathByLava.Die()
+	void IDeathByLava.DieByLava()
 	{
 		
 	}

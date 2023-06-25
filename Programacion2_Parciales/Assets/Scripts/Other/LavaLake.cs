@@ -17,12 +17,12 @@ public class LavaLake : MonoBehaviour
 		//}
 		if (other.gameObject.GetComponent<IDeathByLava>() != null)
 		{
-			other.gameObject.GetComponent<IDeathByLava>().Die();
+			other.gameObject.GetComponent<IDeathByLava>().DieByLava();
 		}
 
 	}
 }
 public interface IDeathByLava
 {
-	public void Die();
+	public void DieByLava();
 }
