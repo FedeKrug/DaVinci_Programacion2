@@ -15,7 +15,7 @@ namespace Game.Enemies
 		public float meleeAttackRange;
 
 		[Header("Enemies Spawner")]
-		[SerializeField] public bool battleAvailable; //un bool para determinar si el boss (commandant) puede saltar a escena a pelear con el player
+		public bool battleAvailable; //un bool para determinar si el boss (commandant) puede saltar a escena a pelear con el player
 		[SerializeField] public int enemyCant = 6;
 
 		protected override void Start()
@@ -31,6 +31,7 @@ namespace Game.Enemies
 		protected override void Attack()
 		{
 			//Manejado por StateMachines
+			Debug.Log("Mutant attacks");
 		}
 
 		protected override bool attackCondition()
@@ -68,30 +69,10 @@ namespace Game.Enemies
 
 		protected override bool moveCondition()
 		{
-			//if (CheckEnemyCant() && base.moveCondition())
-			//{
-			//	return true;
-			//}
-			//else
-			//{
-			//	return false;
-			//}
-			return CheckEnemyCant();
+			return EnemyCounter.instance.CheckSummonedEnemyCant(this);
 		}
 
-		public bool CheckEnemyCant()
-		{
-			if (enemyCant <= 0)
-			{
-				StartCoroutine(CO_JumpToTheBattle());
-				battleAvailable = true;
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+		
 
 		IEnumerator CO_JumpToTheBattle()
 		{

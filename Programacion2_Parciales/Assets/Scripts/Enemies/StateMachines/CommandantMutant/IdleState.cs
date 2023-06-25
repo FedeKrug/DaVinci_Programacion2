@@ -12,7 +12,7 @@ namespace Game.Enemies.Mutant
 
 		public override State RunCurrentState()
 		{
-			if (_enemyRef.CheckEnemyCant())
+			if (EnemyCounter.instance.CheckSummonedEnemyCant(_enemyRef)) 
 			{
 				return _chaseState;
 			}

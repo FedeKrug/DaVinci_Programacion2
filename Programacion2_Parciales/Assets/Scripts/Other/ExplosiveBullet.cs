@@ -7,7 +7,7 @@ using Game.Enemies;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class ExplosiveBullet : Explosive
+public class ExplosiveBullet : Explosive //Explosivo dirigido a un objetivo
 {
 	private Rigidbody _rb;
 	[SerializeField] private float _speed = 5;
