@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Interfaces;
+using Game.Managers;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour, Explotable
@@ -60,5 +61,5 @@ public class PlayerMovement : MonoBehaviour, Explotable
 	{
 		Debug.Log($"Player has to explode, not being damaged in this method. ");
 	}
+	
 }
-

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Game.Managers
 {
-	public class PlayerManager : MonoBehaviour, IDeathByLava
+	public class PlayerManager : MonoBehaviour
 	{
 		public static PlayerManager instance;
 
@@ -15,6 +15,7 @@ namespace Game.Managers
 		public Transform playerTransform;
 		[SerializeField] private PlayerMovement _playerRef;
 		[SerializeField] private float _maxPlayerHealth;
+		[SerializeField] private PlayerDeath _playerDeathRef;
 		[SerializeField] private AudioClip[] _playerClips;
 		#region Singleton
 		private void Awake()
@@ -65,24 +66,12 @@ namespace Game.Managers
 		{
 			if (playerHealth.value <=0)
 			{
-				Die();
+				_playerDeathRef.Die();
 			}
 		}
-		public void DieByLava()
-		{
-			StartCoroutine(CO_PlayerDeath());
-			Debug.Log("Death by Lava AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-		}
+		
 
-		public void Die()
-		{
-			StartCoroutine(CO_PlayerDeath());
-		}
-		private IEnumerator CO_PlayerDeath()
-		{
-			yield return null;
-			Debug.Log($"Player is dead... TODO: Crear la corroutine para la muerte del player");
-		}
+		
 
 		public void PlaySoundOnAnimation(int soundIndex)
 		{
