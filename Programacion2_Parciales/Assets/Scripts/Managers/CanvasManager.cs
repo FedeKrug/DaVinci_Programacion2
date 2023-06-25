@@ -70,9 +70,9 @@ namespace Game.Managers
 				}
 			}
 		}
-		public void SetMouseSensibility(FloatSO mouseSens)
+		public void SetMouseSensibility(FloatSO mouseSensibility)
 		{
-			mouseSens.value = _sliders[3].value;
+			mouseSensibility.value = _sliders[3].value;
 		}
 
 		public void TurnOffMenus()

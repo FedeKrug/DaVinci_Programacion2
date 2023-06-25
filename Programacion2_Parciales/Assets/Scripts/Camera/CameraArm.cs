@@ -57,7 +57,7 @@ public class CameraArm : MonoBehaviour
 		_mouseY = Mathf.Clamp(_mouseY, _minClamp, _maxClamp);
 		CheckMouseXAxisOrientation();
 		CheckMouseYAxisOrientation();
-		transform.rotation = Quaternion.Euler(/*_cameraOrientationY * */_mouseY, /*_cameraOrientationX * */_mouseX, 0f);
+		transform.rotation = Quaternion.Euler(_cameraOrientationY * _mouseY, _cameraOrientationX * _mouseX, 0f);
 
 		_dir = -transform.forward;
 

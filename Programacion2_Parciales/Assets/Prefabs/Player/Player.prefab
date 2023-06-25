@@ -2444,7 +2444,11 @@ MonoBehaviour:
   - {fileID: 2306678089000274680}
   - {fileID: 2306678088954729890}
   _initMusicVol: 0.0001
-  _sliders: []
+  _sliders:
+  - {fileID: 2306678088548952817}
+  - {fileID: 2306678090171061943}
+  - {fileID: 2306678088669731433}
+  - {fileID: 2306678088710869827}
   _asynSceneLoader: {fileID: 0}
 --- !u!223 &2306678089000274680
 Canvas:
@@ -3624,8 +3628,8 @@ GameObject:
   - component: {fileID: 2306678089756159836}
   - component: {fileID: 2306678089756159838}
   - component: {fileID: 2306678089756159835}
+  - component: {fileID: 5558797387594635219}
   - component: {fileID: 2306678089756159839}
-  - component: {fileID: 2306678089756159832}
   - component: {fileID: 2306678089756159837}
   m_Layer: 0
   m_Name: Player
@@ -3739,6 +3743,18 @@ MonoBehaviour:
   animator: {fileID: 2306678090293234815}
   _xAxisName: xAxis
   _zAxisName: zAxis
+--- !u!114 &5558797387594635219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306678089756159142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e82c9fd341d0d444873f5dd099080f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2306678089756159839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3754,25 +3770,6 @@ MonoBehaviour:
   _attackRange: 3
   _attackPosition: {fileID: 2306678090105609512}
   _playerMovement: {fileID: 2306678089756159835}
---- !u!114 &2306678089756159832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2306678089756159142}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494272001188e864f9dac8f6399442d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jumpForce: 6
-  _rb: {fileID: 2306678089756159834}
-  _jumpKey: 32
-  _onFloor: 1
-  _animParameter: onFloor
-  _jumpParameter: Jump
-  _anim: {fileID: 2306678090293234815}
 --- !u!82 &2306678089756159837
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5625,7 +5622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAttackRef: {fileID: 2306678089756159839}
-  _playerJumpRef: {fileID: 2306678089756159832}
   _playerModifiedJump: {fileID: 2306678089756159836}
 --- !u!1 &3345217371192994125
 GameObject:
