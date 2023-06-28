@@ -11,34 +11,24 @@ namespace Game.Enemies.Mutant
 
 		public override State RunCurrentState()
 		{
-			if (_enemyRef.DistantAttackCondition())
+			if (_enemyRef.DistantAttackCondition() && !_enemyRef.MeleeAttackCondition())
 			{
-				//Timer(_enemyBulletSpawner.Cooldown);
-				//StartCoroutine(_enemyBulletSpawner.CO_SpawnBullets());
-				_enemyBulletSpawner.ShootingWithTimer(_enemyBulletSpawner.Cooldown);
+				_enemyRef.LookAtPlayer();
+				_enemyBulletSpawner.enabled = true;
 				return this;
 			}
-			else if (_enemyRef.MeleeAttackCondition())
+			else if (_enemyRef.MeleeAttackCondition() && _enemyRef.DistantAttackCondition())
 			{
+				_enemyBulletSpawner.enabled = false;
 				return _meleeAttackState;
 			}
 			else
 			{
+				_enemyBulletSpawner.enabled = false;
 				return _chaseState;
 			}
 		}
 
-		//private void Timer(float timerTime)
-		//{
-		//	float savedTime = timerTime;
-		//	timerTime -= Time.deltaTime;
-		//	if (timerTime <= 0)
-		//	{
-		//		StartCoroutine(_enemyBulletSpawner.CO_SpawnBullets());
-		//		timerTime = savedTime;
-		//	}
-		//	Debug.Log("Distant State");
-		//}
 		
 	}
 }

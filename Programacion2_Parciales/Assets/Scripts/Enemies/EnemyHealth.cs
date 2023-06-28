@@ -5,7 +5,7 @@ using Game.Enemies;
 public class EnemyHealth : MonoBehaviour, IDeathByLava
 {
 	[Header("Stats")]
-	private float _health;
+	[SerializeField] private float _health;
 	[SerializeField] private float _maxHealth;
 
 	[Header("Aesthetics")]
@@ -17,9 +17,18 @@ public class EnemyHealth : MonoBehaviour, IDeathByLava
 	[SerializeField] private NavMeshAgent _enemyNavmesh;
 	[SerializeField, Tooltip("World Canvas enemy Health Bar")] private WorldCanvasEnemyHealthBar _enemyHealthBar;
 
+
 	private void Start()
 	{
 		_health = _maxHealth;
+	}
+	public float Health
+	{
+		get => _health;
+	}
+	public float MaxHealth
+	{
+		get => _maxHealth;
 	}
 
 	public IEnumerator Die()
@@ -60,7 +69,7 @@ public class EnemyHealth : MonoBehaviour, IDeathByLava
 
 	void IDeathByLava.DieByLava()
 	{
-		
+
 	}
 }
 

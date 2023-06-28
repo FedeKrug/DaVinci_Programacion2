@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Game.Enemies;
 using UnityEngine;
 
-using static UnityEngine.GraphicsBuffer;
+//using static UnityEngine.GraphicsBuffer;
 
 namespace Game.Enemies.Mutant
 {
@@ -15,15 +15,14 @@ namespace Game.Enemies.Mutant
 		public override State RunCurrentState()
 {
 			float distance = (transform.position - _enemyRef.Target.position).sqrMagnitude;
-			if (distance <= Mathf.Pow(_enemyRef.RangeToChase, 2)) 
+			if (_enemyRef.ChaseCondition()) 
 			{
 				return _chaseState;
 			}
 			else
 			{
-				//_enemyRef.battleAvailable = false;
 				_enemyRef.StopMoving();
-				Debug.Log("IdleState");
+				//Debug.Log("IdleState");
 				return this;
 			}
 		}

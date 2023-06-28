@@ -17,7 +17,10 @@ namespace Game.Enemies
 		[Header("Enemies Spawner")]
 		public bool battleAvailable; //un bool para determinar si el boss (commandant) puede saltar a escena a pelear con el player
 
+		[Header("Animations")]
 		[SerializeField] private AnimationClip _roaringAnimation;
+		
+
 
 		protected override void Start()
 		{
@@ -32,7 +35,6 @@ namespace Game.Enemies
 		protected override void Attack()
 		{
 			//Manejado por StateMachines
-			//Debug.Log("Mutant attacks");
 		}
 
 		protected override bool attackCondition()
@@ -49,7 +51,7 @@ namespace Game.Enemies
 		}
 		public bool DistantAttackCondition()
 		{
-			if (_distance <= Mathf.Pow(distantAttackRange, 2))
+			if (_distance <= Mathf.Pow(distantAttackRange, 2) && _health.Health < _health.MaxHealth * 0.5f)
 			{
 				return true;
 			}
@@ -65,33 +67,49 @@ namespace Game.Enemies
 		}
 		protected override void Move()
 		{
-			
+			//Se usan state machines para el movimiento (ChaseState)
 		}
-
+		public bool ChaseCondition()
+		{
+			if (_distance <= Mathf.Pow(RangeToChase, 2) && canMove)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 		protected override bool moveCondition()
 		{
-			//return EnemyCounter.instance.CheckSummonedEnemyCant(this);
 			return battleAvailable;
 		}
 
-		public void MeleeAttack()
+		
+
+		public void LookAtPlayer()
 		{
-			base.Attack();
+			transform.LookAt(_target.position);
 		}
 		public override void animationAttack()
 		{
 			base.animationAttack();
 		}
+		public void CommandantMove()
+		{
+			base.Move();
+			
+		}
 		public IEnumerator CO_JumpToTheBattle()
 		{
-			//TODO: Feedback de battleAvailable, por ejemplo que el Mutant haga una animacion de salto desde su podio. Hacerlo con una coroutine
-			//yield return null;
 			_anim.Play(_roaringAnimation.name);
 			battleAvailable = true;
+			//_anim.StopPlayback();
 			Debug.Log($"Enemy is Roaring");
 			yield return new WaitForSeconds(10);
-			base.Move();
-			Debug.Log($"Enemy is moving to player");
+			canMove = true;
+			CommandantMove();
+			
 		}
 	}
 }

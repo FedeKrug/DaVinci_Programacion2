@@ -21,12 +21,13 @@ namespace Game.Enemies.Mutant
 			{
 				return _meleeAttackState;
 			}
-			else if (!_enemyRef.DistantAttackCondition()&& !_enemyRef.MeleeAttackCondition())
+			else if (!_enemyRef.DistantAttackCondition()&& !_enemyRef.MeleeAttackCondition() && !_enemyRef.ChaseCondition())
 			{
 				return _idleState;
 			}
 			else
 			{
+				_enemyRef.CommandantMove();
 				return this;
 			}
 		}

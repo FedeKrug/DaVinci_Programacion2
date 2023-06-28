@@ -9,7 +9,8 @@ namespace Game.Enemies
 	public class EnemyBulletSpawner : MonoBehaviour
 	{
 		[SerializeField] private float _bulletLifetime;
-		[SerializeField] private float _cooldown;
+		private float _cooldown;
+		[SerializeField] private float _maxCooldown;
 		[SerializeField] private ExplosiveBullet _bullet;
 		[SerializeField] private Transform[] _projectileSpawners;
 		private ExplosiveBullet _instBullet;
@@ -23,8 +24,18 @@ namespace Game.Enemies
 		private void Start()
 		{
 			_target = PlayerManager.instance.playerTransform;
+			_cooldown = _maxCooldown;
 		}
 
+		private void Update()
+		{
+			_cooldown -= Time.deltaTime;
+			if (_cooldown <= 0)
+			{
+				Shooting();
+				_cooldown = _maxCooldown;
+			}
+		}
 
 		public IEnumerator CO_SpawnBullets()
 		{
@@ -46,7 +57,17 @@ namespace Game.Enemies
 				_instBullet.InizializeBullet(_target, _bulletLifetime);
 				timerTime = savedTime;
 			}
-			
+
+		}
+
+		public void Shooting()
+		{
+
+			var projectileSpawnPoint = _projectileSpawners[Random.Range(0, _projectileSpawners.Length)];
+			_instBullet = Instantiate(_bullet, projectileSpawnPoint.position, transform.rotation);
+			_instBullet.InizializeBullet(_target, _bulletLifetime);
+
+
 		}
 	}
 }
