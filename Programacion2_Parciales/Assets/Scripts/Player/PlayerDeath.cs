@@ -25,16 +25,15 @@ public class PlayerDeath : MonoBehaviour, IDeathByLava
 	}
 	public IEnumerator CO_PlayerDeath()
 	{
-		_anim.Play(_deathAnimation.ToString());
+		_anim.Play(_deathAnimation.name);
 		yield return new WaitForSeconds(_particleTime);
 		Revive();
 		Debug.Log($"Player is dead... TODO: Crear la corroutine para la muerte del player");
 	}
 	public IEnumerator CO_PlayerDeathByLava()
 	{
-		_anim.Play(_deathByLavaAnimation.ToString());
+		_anim.Play(_deathByLavaAnimation.name);
 		yield return new WaitForSeconds(_particleTime);
-		Debug.Log($"Player is dead... TODO: Crear la corroutine para la muerte del player");
 		Revive();
 	}
 
