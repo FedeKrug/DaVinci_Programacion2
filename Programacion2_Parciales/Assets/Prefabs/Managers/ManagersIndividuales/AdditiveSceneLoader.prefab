@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: EnvironmentB
   _sceneToUnload: 
+  boxCollider: {fileID: 0}
   _doorAnimation: {fileID: 3944591544770514849, guid: 70c3e263bf01a6a4e9065668f2bc1af2, type: 3}
   _OpenDoorAnimation: {fileID: 7400000, guid: f969ecc919e1124418f0e199c6f91739, type: 2}
   _closeDoorAnimation: {fileID: 7400000, guid: 493bcc140d11fe146826f32501c10ea5, type: 2}

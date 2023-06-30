@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vampire_Enemy_02
       objectReference: {fileID: 0}
+    - target: {fileID: 4399771883856746873, guid: 05e5a3de7d2ccb043842c2b093c36c30, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05e5a3de7d2ccb043842c2b093c36c30, type: 3}
 --- !u!114 &126604607 stripped
@@ -611,6 +615,10 @@ PrefabInstance:
     - target: {fileID: 3964356724969485620, guid: 9d696231c610032429592a64ab3779cd, type: 3}
       propertyPath: m_Name
       value: Bomber_Enemy_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964356724969485620, guid: 9d696231c610032429592a64ab3779cd, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3964356724969485623, guid: 9d696231c610032429592a64ab3779cd, type: 3}
       propertyPath: m_RootOrder
@@ -974,6 +982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vampire_Enemy_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4399771883856746873, guid: 05e5a3de7d2ccb043842c2b093c36c30, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05e5a3de7d2ccb043842c2b093c36c30, type: 3}
 --- !u!1001 &825859443
@@ -1150,6 +1162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Parasite_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8903910561608503340, guid: 91564b1700ce8934fb180c8e1f10e904, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91564b1700ce8934fb180c8e1f10e904, type: 3}
 --- !u!4 &881488281 stripped
@@ -1232,6 +1248,10 @@ PrefabInstance:
     - target: {fileID: 4399771883856746873, guid: 05e5a3de7d2ccb043842c2b093c36c30, type: 3}
       propertyPath: m_Name
       value: Vampire_Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399771883856746873, guid: 05e5a3de7d2ccb043842c2b093c36c30, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05e5a3de7d2ccb043842c2b093c36c30, type: 3}
@@ -7502,6 +7522,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Parasite
       objectReference: {fileID: 0}
+    - target: {fileID: 8903910561608503340, guid: 91564b1700ce8934fb180c8e1f10e904, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91564b1700ce8934fb180c8e1f10e904, type: 3}
 --- !u!114 &1208385821 stripped
@@ -7855,6 +7879,10 @@ PrefabInstance:
     - target: {fileID: 3964356724969485620, guid: 9d696231c610032429592a64ab3779cd, type: 3}
       propertyPath: m_Name
       value: Bomber_Enemy_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964356724969485620, guid: 9d696231c610032429592a64ab3779cd, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3964356724969485623, guid: 9d696231c610032429592a64ab3779cd, type: 3}
       propertyPath: m_RootOrder
@@ -8584,6 +8612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomber_Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3964356724969485620, guid: 9d696231c610032429592a64ab3779cd, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3964356724969485623, guid: 9d696231c610032429592a64ab3779cd, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -9095,7 +9127,7 @@ PrefabInstance:
       objectReference: {fileID: 264030614}
     - target: {fileID: 7035214906055784311, guid: c33a281380ff49e409c4b1a197ee03a7, type: 3}
       propertyPath: _maxEnemySummonedCant
-      value: 19
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c33a281380ff49e409c4b1a197ee03a7, type: 3}

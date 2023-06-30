@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Game.Enemies;
 using Game.Managers;
+
 using UnityEngine;
 
 public class EnemyCounter : MonoBehaviour
@@ -23,8 +24,9 @@ public class EnemyCounter : MonoBehaviour
 	}
 	#endregion
 
-	private int _enemyCant;
-	private int _enemySummonedCant;
+
+	[SerializeField]private int _enemyCant;
+	[SerializeField]private int _enemySummonedCant;
 	[SerializeField] private int _maxEnemyCant, _maxEnemySummonedCant;
 	[SerializeField] private Enemy_Commandant _mutant;
 	[SerializeField] private AdditiveSceneLoader _additiveSceneLoader;
@@ -33,6 +35,20 @@ public class EnemyCounter : MonoBehaviour
 	{
 		_enemyCant = _maxEnemyCant;
 		_enemySummonedCant = _maxEnemySummonedCant;
+	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.V))
+		{
+			_enemyCant--;
+			CheckEnemyCant();
+		}
+		if (Input.GetKeyDown(KeyCode.B))
+		{
+			_enemySummonedCant--;
+			CheckSummonedEnemyCant();
+		}
 	}
 	public int EnemyCant
 	{
@@ -57,6 +73,7 @@ public class EnemyCounter : MonoBehaviour
 		}
 	}
 
+	[ContextMenu("CheckEnemyCant")]
 	public void CheckEnemyCant()
 	{
 		if (_enemyCant <= 0)
@@ -70,6 +87,10 @@ public class EnemyCounter : MonoBehaviour
 	[ContextMenu("CheckSummonedEnemyCant")]
 	public bool CheckSummonedEnemyCant()
 	{
+		if (_mutant == null)
+		{
+			_mutant = FindObjectOfType<Enemy_Commandant>();
+		}
 		if (_enemySummonedCant <= 0)
 		{
 			Debug.Log("Call The Boss");
