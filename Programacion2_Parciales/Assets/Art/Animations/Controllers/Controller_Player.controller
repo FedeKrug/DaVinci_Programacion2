@@ -1288,9 +1288,9 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Piernas
-    m_StateMachine: {fileID: -1969469500185509344}
-    m_Mask: {fileID: 31900000, guid: 8a6290079a80b0e46960eec36a640bae, type: 2}
+    m_Name: Torso
+    m_StateMachine: {fileID: 9074048904164859031}
+    m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -1300,26 +1300,26 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Torso
-    m_StateMachine: {fileID: 9074048904164859031}
-    m_Mask: {fileID: 31900000, guid: c07b90e9be00df74c99b53a3b427de1c, type: 2}
+    m_Name: Piernas
+    m_StateMachine: {fileID: -1969469500185509344}
+    m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 1
-    m_IKPass: 1
+    m_DefaultWeight: 0
+    m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
     m_Name: Legs
     m_StateMachine: {fileID: -7746867021894372709}
-    m_Mask: {fileID: 31900000, guid: 316135841de16274591bdb2d58f7c3e5, type: 2}
+    m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 0.55
+    m_DefaultWeight: 0
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
