@@ -11,11 +11,18 @@ namespace Game.Managers
 		[SerializeField] private string _sceneToLoad;
 		[SerializeField] private string _sceneToUnload;
 
-		[Header("Components")]
+		[Header("CompletationCondition")]
+		public BoxCollider boxCollider;
+		//public bool canGoFurther;
+
+
+		[Header("Animations")]
 		[SerializeField] private Animation _doorAnimation;
 		[SerializeField] private AnimationClip _OpenDoorAnimation, _closeDoorAnimation;
 
 		[SerializeField] private bool _isSceneLoaded;
+
+
 
 		private void OnTriggerEnter(Collider other)
 		{
@@ -43,7 +50,6 @@ namespace Game.Managers
 			gameObject.SetActive(false);
 		}
 
-
 		private void OpenDoor(AsyncOperation asyncOp)
 		{
 			_doorAnimation.clip = _OpenDoorAnimation;
@@ -58,33 +64,4 @@ namespace Game.Managers
 	}
 }
 
-//public class AdditiveSceneLoader : MonoBehaviour
-//{
-//	[Header("Additive Scene Manager")]
-//	[SerializeField] private string _sceneToLoad;
 
-//	[Header("Components")]
-//	[SerializeField] private Animation _doorAnimator;
-
-//	private bool _isSceneLoaded;
-
-//	private void OnTriggerEnter(Collider other)
-//	{
-
-
-//		if (_isSceneLoaded) return;
-//		Debug.Log("Scene is loading");
-//		AsyncOperation additiveLoad = SceneManager.LoadSceneAsync(_sceneToLoad, LoadSceneMode.Additive);
-//		additiveLoad.completed += OpenDoor;
-//		_isSceneLoaded = true;
-//		Debug.Log("Scene is loaded");
-
-//		gameObject.SetActive(false);
-//	}
-
-//	private void OpenDoor(AsyncOperation asyncOp)
-//	{
-//		_doorAnimator.Play();
-//	}
-//}
-//}

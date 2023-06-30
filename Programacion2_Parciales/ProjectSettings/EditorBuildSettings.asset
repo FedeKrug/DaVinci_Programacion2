@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Buildable Scenes/Title.unity
     guid: cc6b872bd81e10645b61ffdd7b702dca
   - enabled: 1
-    path: Assets/Scenes/TestLevel.unity
+    path: Assets/Scenes/Buildable Scenes/TestLevel.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Buildable Scenes/EnvironmentA.unity

@@ -90,5 +90,13 @@ namespace Game.Managers
 				Destroy(_menuCanvas[i].gameObject);
 			}
 		}
+
+		public void GoalScreen()
+		{
+			TurnOffMenus();
+			_menuCanvas[2].enabled = true; //posicion de goalCanvas = 2
+			GameManager.instance.FreeCursor();
+			GameManager.instance.ShowCursor();
+		}
 	}
 }

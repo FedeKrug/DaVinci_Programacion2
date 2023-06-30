@@ -31,6 +31,7 @@ namespace Game.Managers
 		[SerializeField] private Image _loadBar;
 		[SerializeField] private Color _loadProgressColor = Color.red;
 		[SerializeField] private Color _loadDoneColor = Color.green;
+		[SerializeField] private GameObject _pressSpaceText;
 		
 
 		private bool _isAsyncLoading;
@@ -54,7 +55,6 @@ namespace Game.Managers
 			_isAsyncLoading = true;
 			AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneToLoad);
 			asyncLoad.allowSceneActivation = false;
-			//_loadBar.color = _loadProgressColor;
 			while (asyncLoad.progress <0.9f)
 			{
 				_loadBar.fillAmount = asyncLoad.progress / 0.9f;
@@ -63,6 +63,8 @@ namespace Game.Managers
 			}
 			_loadBar.fillAmount = 1;
 			_loadBar.color = _loadDoneColor;
+			//yield return new WaitForSeconds(1.5f);
+			_pressSpaceText.SetActive(true);
 
 			while (!Input.GetKey(_loadSceneButton))
 			{

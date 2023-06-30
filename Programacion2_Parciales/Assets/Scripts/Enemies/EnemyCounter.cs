@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using Game.Enemies;
-
+using Game.Managers;
 using UnityEngine;
 
 public class EnemyCounter : MonoBehaviour
@@ -27,6 +27,7 @@ public class EnemyCounter : MonoBehaviour
 	private int _enemySummonedCant;
 	[SerializeField] private int _maxEnemyCant, _maxEnemySummonedCant;
 	[SerializeField] private Enemy_Commandant _mutant;
+	[SerializeField] private AdditiveSceneLoader _additiveSceneLoader;
 
 	private void Start()
 	{
@@ -60,7 +61,9 @@ public class EnemyCounter : MonoBehaviour
 	{
 		if (_enemyCant <= 0)
 		{
+			_additiveSceneLoader.boxCollider.enabled = true;
 			Debug.Log("Enemies Dead ");
+
 		}
 
 	}
