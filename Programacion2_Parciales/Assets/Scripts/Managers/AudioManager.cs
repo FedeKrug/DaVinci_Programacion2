@@ -47,7 +47,6 @@ public class AudioManager : MonoBehaviour //lo hago todo en el mismo porque esto
 		_mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20);
 	}
 	public void SetSfxVolume(float sliderValue)
-
 	{
 		_mixer.SetFloat("SfxVolume", Mathf.Log10(sliderValue) * 20);
 	}
